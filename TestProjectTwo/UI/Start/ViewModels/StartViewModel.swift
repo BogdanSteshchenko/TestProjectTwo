@@ -5,11 +5,9 @@
 //  Created by Developer on 16.09.2022.
 //
 
-import UIKit
+import Foundation
 
 struct StartViewModel {
-    let barButtonImage: UIImage
-    let barButtonTitle: String
     let mostEmailedButtonModel: ButtonViewModel
     let mostSharedButtonModel: ButtonViewModel
     let mostViewedButtonModel: ButtonViewModel

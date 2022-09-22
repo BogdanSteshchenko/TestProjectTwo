@@ -19,29 +19,26 @@ protocol IStartPresenter {
 
 final class StartPresenter: StartActions, IStartPresenter {
     
+    // Dependencies
     weak var view: IStartViewController?
     private let viewModelFactory: IStartViewModelFactory
     private let router: IStartRouter
-//    private weak var logInModuleDelegate: LogInModuleDelegate?
     
-    
+    // MARK: - Initialization
     init(
         viewModelFactory: IStartViewModelFactory,
         router: IStartRouter
-//        logInModuleDelegate: LogInModuleDelegate?
     ) {
         self.viewModelFactory = viewModelFactory
         self.router = router
-//        self.logInModuleDelegate = logInModuleDelegate
     }
 
+    // MARK: - Life cycle
     
     func viewDidLoad() {
         view?.setup(with: viewModelFactory.makeViewModel(actions: self))
     }
 
-    
-    
     // MARK: - StartActions
     
     func didTapMostEmailed() {

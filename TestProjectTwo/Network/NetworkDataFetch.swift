@@ -7,14 +7,30 @@
 
 import Foundation
 
-class NetworkDataFetch {
+enum BaseURLType {
+    case mostEmailed
+    case mostShared
+    case mostViewed
+}
+
+final class NetworkDataFetch {
     
     static let shared = NetworkDataFetch()
     
     private init() {
     }
     
-    func fetchArticles(urlString: String, responce: @escaping (ArticlesModel?, Error?) -> Void) {
+    func fetchArticles(url: BaseURLType, responce: @escaping (ArticlesModel?, Error?) -> Void) {
+        var urlString = ""
+        switch url {
+        case .mostEmailed:
+            urlString = "https://api.nytimes.com/svc/mostpopular/v2/emailed/30.json?api-key=mrFPbwPT04KhI7ienE7ZRUOlMQSJYI5P"
+        case .mostShared:
+            urlString = "https://api.nytimes.com/svc/mostpopular/v2/shared/30/facebook.json?api-key=mrFPbwPT04KhI7ienE7ZRUOlMQSJYI5P"
+        case .mostViewed:
+            urlString = "https://api.nytimes.com/svc/mostpopular/v2/viewed/30.json?api-key=mrFPbwPT04KhI7ienE7ZRUOlMQSJYI5P"
+        }
+        
         NetworkRequest.shared.requestData(urlString: urlString) { result in
             switch result {
             case .success(let data):

@@ -17,25 +17,31 @@ final class StartRouter: IStartRouter {
     
     // Dependencies
     weak var transitionHandler: UIViewController?
-    private let mostEmailedAssembly: IMostPopularAssembly
+    private let mostPopularAssembly: IMostPopularAssembly
+    
+    
+    // MARK: - Initialization
     
     init(
-        mostEmailedAssembly: IMostPopularAssembly
+        mostPopularAssembly: IMostPopularAssembly
     ) {
-        self.mostEmailedAssembly = mostEmailedAssembly
+        self.mostPopularAssembly = mostPopularAssembly
     }
     
+    //MARK: - IStartRouter
     
     func showDetailMostEmailed() {
-        print("1")
+        let view: UIViewController = mostPopularAssembly.assemble(title: "Most emailed")
+        transitionHandler?.navigationController?.pushViewController(view, animated: true)
     }
     
     func showDetailMostShared() {
-        print("2")
+        let view: UIViewController = mostPopularAssembly.assemble(title: "Most shared")
+        transitionHandler?.navigationController?.pushViewController(view, animated: true)
     }
     
     func showDetailMostViewed() {
-        print("3")
+        let view: UIViewController = mostPopularAssembly.assemble(title: "Most viewed")
+        transitionHandler?.navigationController?.pushViewController(view, animated: true)
     }
-    
 }

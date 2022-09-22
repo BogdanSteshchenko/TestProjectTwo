@@ -5,8 +5,17 @@
 //  Created by Developer on 19.09.2022.
 //
 
-import Foundation
+import UIKit
+
 
 struct MostPopularViewModel {
+    static let empty: MostPopularViewModel = .init(shelves: [])
     
+    let shelves: [MostPopularViewModelCell]
+}
+
+struct MostPopularViewModelCell {
+    let imageArticles: String?
+    let nameArticles: String
+    let dateArticlesLabel: String
 }

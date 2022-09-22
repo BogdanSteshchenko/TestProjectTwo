@@ -17,8 +17,6 @@ final class StartViewModelFactory: IStartViewModelFactory {
     
     func makeViewModel(actions: StartActions) -> StartViewModel {
         .init(
-            barButtonImage: UIImage(systemName: "book.fill")!,
-            barButtonTitle: "Articles",
             mostEmailedButtonModel: makeMostEmailedButtonModel(actions: actions),
             mostSharedButtonModel: makeMostSharedButtonModel(actions: actions),
             mostViewedButtonModel: makeMostViewedButtonModel(actions: actions)
