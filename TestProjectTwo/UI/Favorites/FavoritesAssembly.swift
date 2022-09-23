@@ -5,4 +5,20 @@
 //  Created by Developer on 19.09.2022.
 //
 
-import Foundation
+import UIKit
+
+protocol IFavoritesAssembly {
+    func assemble() -> UIViewController
+}
+
+final class FavoritesAssembly: IFavoritesAssembly {
+    func assemble() -> UIViewController {
+        let viewModelFactory: FavoritesViewModelFactory = FavoritesViewModelFactory()
+        let router: FavoritesRouter = FavoritesRouter()
+        let preseter: FavoritesPresenter = FavoritesPresenter(favoritesViewModelFactory: viewModelFactory, router: router)
+        let view: FavoritesViewController = FavoritesViewController(presenter: preseter)
+        preseter.view = view
+        
+        return view
+    }
+}

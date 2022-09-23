@@ -5,10 +5,17 @@
 //  Created by Developer on 19.09.2022.
 //
 
-import UIKit
+import Foundation
+
 
 struct FavoritesViewModel {
-    let imageArticles: UIImage
+    static let empty: FavoritesViewModel = .init(shelves: [])
+
+    let shelves: [FavoritesViewModelCell]
+}
+
+struct FavoritesViewModelCell {
+    let imageArticles: String?
     let nameArticles: String
     let dateArticlesLabel: String
 }

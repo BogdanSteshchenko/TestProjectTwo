@@ -12,9 +12,11 @@ protocol IStartViewController: AnyObject {
     func setup(with viewModel: StartViewModel)
 }
 
-class StartViewController: UIViewController, IStartViewController {
+final class StartViewController: UIViewController, IStartViewController {
+    
     // Dependencies
     private let presenter: IStartPresenter
+    
     // UI elements
     private let mostEmailedButton: UIButton = UIButton(type: .system)
     private let mostSharedButton: UIButton = UIButton(type: .system)
@@ -47,14 +49,11 @@ class StartViewController: UIViewController, IStartViewController {
         mostEmailedButton.setup(with: viewModel.mostEmailedButtonModel)
         mostSharedButton.setup(with: viewModel.mostSharedButtonModel)
         mostViewedButton.setup(with: viewModel.mostViewedButtonModel)
-        self.tabBarItem.image = viewModel.barButtonImage
-        self.tabBarItem.title = viewModel.barButtonTitle
     }
     
     // MARK: - Private
     
     private func setup() {
-        view.backgroundColor = .white
         setupMostSharedButton()
         setupMostEmailedButton()
         setupMostViewedButton()

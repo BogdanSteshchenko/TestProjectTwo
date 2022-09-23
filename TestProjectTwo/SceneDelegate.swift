@@ -11,25 +11,19 @@ import Alamofire
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var flowCoordinator: IFlowCoordinator?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+
+        setupAppearence()
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
         let window = UIWindow(windowScene: windowScene)
-        let tabBarController = UITabBarController()
-        tabBarController.tabBar.backgroundColor = .white
-        tabBarController.tabBar.tintColor = .black
-        let startAssembly: IStartAssembly = StartAssembly()
-        let startView = startAssembly.assemble()
-        
-        
-        tabBarController.viewControllers = [startView]
-        
-        window.rootViewController = tabBarController
-        window.makeKeyAndVisible()
         self.window = window
+        flowCoordinator = FlowCoordinator(window: window)
+        flowCoordinator?.start()
+
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -62,6 +56,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
-
 }
 
+extension SceneDelegate {
+    fileprivate func setupAppearence() {
+        UITabBar.appearance().tintColor = .darkGray
+    }
+}

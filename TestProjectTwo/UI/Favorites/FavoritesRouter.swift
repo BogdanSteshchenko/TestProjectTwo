@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+protocol IFavoriteRouter {
+    
+}
+
+final class FavoritesRouter: IFavoriteRouter {
+    
+}
