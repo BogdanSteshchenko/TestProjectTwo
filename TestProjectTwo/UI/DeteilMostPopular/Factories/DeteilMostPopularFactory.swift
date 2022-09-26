@@ -14,7 +14,6 @@ protocol IDeteilMostPopularFactory {
 final class DeteilMostPopularFactory: IDeteilMostPopularFactory {
     
     //MARK: - IDeteilMostPopularFactory
-    
     func makeViewModel(actions: DeteilMostPopularActions, model: Article) -> DeteilMostPopularViewModel {
         .init(
             image: getImafe(urlString: model.media?.first?.media_metadata[2].url),
@@ -27,7 +26,6 @@ final class DeteilMostPopularFactory: IDeteilMostPopularFactory {
     }
     
     //MARK: - Private
-    
     private func makeAddFavoriteButtonModel(actions: DeteilMostPopularActions) -> ButtonViewModel {
         .init(
             title: "Add favorite",
@@ -36,7 +34,6 @@ final class DeteilMostPopularFactory: IDeteilMostPopularFactory {
             }
         )
     }
-    
     
     private func getImafe(urlString: String?) -> UIImage? {
         if let image = loadImage(urlString: urlString) {
@@ -52,6 +49,7 @@ final class DeteilMostPopularFactory: IDeteilMostPopularFactory {
             guard let url = URL(string: urlString) else { return nil }
             let data = try Data(contentsOf: url)
             let image = UIImage(data: data)
+
             return image
         } catch {
             return nil

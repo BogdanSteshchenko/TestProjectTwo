@@ -23,7 +23,6 @@ final class StartViewController: UIViewController, IStartViewController {
     private let mostViewedButton: UIButton = UIButton(type: .system)
     
     // MARK: - Initialization
-    
     init(presenter: IStartPresenter) {
         self.presenter = presenter
         
@@ -35,7 +34,6 @@ final class StartViewController: UIViewController, IStartViewController {
     }
     
     // MARK: - Life cycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,7 +42,7 @@ final class StartViewController: UIViewController, IStartViewController {
         presenter.viewDidLoad()
     }
     
-    
+    //MARK: - IStartViewController
     func setup(with viewModel: StartViewModel) {
         mostEmailedButton.setup(with: viewModel.mostEmailedButtonModel)
         mostSharedButton.setup(with: viewModel.mostSharedButtonModel)
@@ -52,14 +50,11 @@ final class StartViewController: UIViewController, IStartViewController {
     }
     
     // MARK: - Private
-    
     private func setup() {
         setupMostSharedButton()
         setupMostEmailedButton()
         setupMostViewedButton()
     }
-    
-    
     private func setupMostEmailedButton() {
         view.addSubview(mostEmailedButton)
         mostEmailedButton.snp.makeConstraints {

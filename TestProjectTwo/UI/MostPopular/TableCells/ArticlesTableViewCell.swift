@@ -6,12 +6,16 @@
 //
 
 import UIKit
+import SnapKit
 
 final class ArticlesTableViewCell: UITableViewCell {
     
+    // UI elements
     private let articlesLogo: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
+        imageView.contentMode = .scaleToFill
+        imageView.layer.cornerRadius = 20
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -33,14 +37,8 @@ final class ArticlesTableViewCell: UITableViewCell {
         
         return label
     }()
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        articlesLogo.layer.cornerRadius = 20
-        articlesLogo.contentMode = .scaleAspectFit
-    }
     
-    
+    //MARK: - Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -88,22 +86,22 @@ final class ArticlesTableViewCell: UITableViewCell {
     
     //MARK: - Constrains
     private func setConsrains() {
-        NSLayoutConstraint.activate([
-            articlesLogo.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            articlesLogo.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            articlesLogo.heightAnchor.constraint(equalToConstant: 75),
-            articlesLogo.widthAnchor.constraint(equalToConstant: 75)
-        ])
-        NSLayoutConstraint.activate([
-            nameArticlesLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            nameArticlesLabel.leadingAnchor.constraint(equalTo: articlesLogo.trailingAnchor, constant: 10),
-            nameArticlesLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10)
-        ])
-        NSLayoutConstraint.activate([
-            dateArticlesLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
-            dateArticlesLabel.widthAnchor.constraint(equalToConstant: 120),
-            dateArticlesLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10)
-        ])
+        articlesLogo.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalTo(self.snp.leading).offset(15)
+            $0.height.equalTo(75)
+            $0.width.equalTo(75)
+        }
+        nameArticlesLabel.snp.makeConstraints {
+            $0.trailing.equalTo(self.snp.trailing).offset(-10)
+            $0.leading.equalTo(articlesLogo.snp.trailing).offset(10)
+            $0.top.equalTo(self.snp.top).offset(10)
+        }
+        dateArticlesLabel.snp.makeConstraints{
+            $0.bottom.equalTo(self.snp.bottom).offset(0)
+            $0.width.equalTo(120)
+            $0.trailing.equalTo(self.snp.trailing).offset(10)
+        }
     }
 }
 

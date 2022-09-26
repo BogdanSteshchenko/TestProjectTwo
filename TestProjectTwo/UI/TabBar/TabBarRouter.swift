@@ -8,7 +8,6 @@
 import UIKit
 
 protocol ITabBarRouter {
-    
 }
 
 final class TabBarRouter: ITabBarRouter {

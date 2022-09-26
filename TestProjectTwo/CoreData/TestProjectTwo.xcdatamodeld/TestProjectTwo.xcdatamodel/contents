@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21279" systemVersion="21G115" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="ArticleFavorite" representedClassName="ArticleFavorite" syncable="YES" codeGenerationType="class">
-        <attribute name="abstractFavorite" attributeType="String"/>
-        <attribute name="bylineFavorite" attributeType="String"/>
-        <attribute name="mediaFavorite" attributeType="String"/>
-        <attribute name="published_dateFavorite" attributeType="String"/>
-        <attribute name="sectionFavorite" attributeType="String"/>
-        <attribute name="titleFavorite" attributeType="String"/>
+        <attribute name="abstractFavorite" optional="YES" attributeType="String"/>
+        <attribute name="bylineFavorite" optional="YES" attributeType="String"/>
+        <attribute name="mediaFavorite" optional="YES" attributeType="String"/>
+        <attribute name="published_dateFavorite" optional="YES" attributeType="String"/>
+        <attribute name="sectionFavorite" optional="YES" attributeType="String"/>
+        <attribute name="titleFavorite" optional="YES" attributeType="String"/>
         <attribute name="urlFavorite" optional="YES" attributeType="Binary"/>
     </entity>
 </model>

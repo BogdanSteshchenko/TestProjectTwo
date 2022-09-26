@@ -25,7 +25,6 @@ final class MostPopularPresenter: IMostPopularPresenter {
     private var article: [Article] = []
     
     // MARK: - Initialization
-    
     init(
         mostPopularViewModelFactory: IMostPopularViewModelFactory,
         router: IMostPopularRouter) {
@@ -65,7 +64,6 @@ final class MostPopularPresenter: IMostPopularPresenter {
     }
     
     //MARK: - MostPopularActions
-    
     func didTapDeteilAcrticle(number: Int) {
         router.showDeteilFavorite(article: article[number])
     }

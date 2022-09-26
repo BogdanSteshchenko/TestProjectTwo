@@ -11,11 +11,9 @@ protocol IMostPopularViewModelFactory {
     func makeViewModel(model: ArticlesModel) -> MostPopularViewModel
 }
 
-
 final class MostPopularViewModelFactory: IMostPopularViewModelFactory {
     
     //MARK: - IMostPopularViewModelFactory
-    
     func makeViewModel(model: ArticlesModel) -> MostPopularViewModel {
         let shelves: [MostPopularViewModelCell] = self.makeArticles(article: model.results)
         
@@ -23,7 +21,6 @@ final class MostPopularViewModelFactory: IMostPopularViewModelFactory {
     }
     
     // MARK: - Private
-    
     private func makeArticles(article: [Article]) -> [MostPopularViewModelCell] {
         var mostPopularViewModelCell: [MostPopularViewModelCell] = []
         article.forEach { article in

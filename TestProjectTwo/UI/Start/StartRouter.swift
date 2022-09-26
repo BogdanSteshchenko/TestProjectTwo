@@ -21,7 +21,6 @@ final class StartRouter: IStartRouter {
     
     
     // MARK: - Initialization
-    
     init(
         mostPopularAssembly: IMostPopularAssembly
     ) {
@@ -29,7 +28,6 @@ final class StartRouter: IStartRouter {
     }
     
     //MARK: - IStartRouter
-    
     func showDetailMostEmailed() {
         let view: UIViewController = mostPopularAssembly.assemble(title: "Most emailed")
         transitionHandler?.navigationController?.pushViewController(view, animated: true)

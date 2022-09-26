@@ -21,6 +21,7 @@ final class DeteilMostPopularPresenter: DeteilMostPopularActions, IDeteilMostPop
     weak var view: DeteilMostPopularViewController?
     private let viewModelFactory: IDeteilMostPopularFactory
     private let router: IDeteilMostPopularRouter
+    private var article: Article?
     
     
     // MARK: - Initialization
@@ -33,13 +34,13 @@ final class DeteilMostPopularPresenter: DeteilMostPopularActions, IDeteilMostPop
     }
     
     // MARK: - Life cycle
-    
     func viewDidLoad(article: Article) {
         view?.setup(with: viewModelFactory.makeViewModel(actions: self, model: article))
+        self.article = article
     }
     // MARK: - DeteilMostPopularActions
-    
     func didTapAddfavorite() {
-        print("Add to favorite")
+        guard let article = article else { return }
+        router.addNewFavoriteArticle(article: article)
     }
 }

@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+protocol IDeteilFavoritesRouter {
+    
+}
+
+final class DeteilFavoritesRoute: IDeteilFavoritesRouter {
+    
+}

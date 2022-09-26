@@ -17,14 +17,12 @@ final class MostPopularRouter: IMostPopularRouter {
     weak var transitionHandler: UIViewController?
     private let deteilMostPopularAssembly: IDeteilMostPopularAssembly
     
-    // MARK: - Initialization
-    
+    //MARK: - Initialization
     init(deteilMostPopularAssembly: IDeteilMostPopularAssembly) {
         self.deteilMostPopularAssembly = deteilMostPopularAssembly
     }
     
     //MARK: - IMostPopularRouter
-    
     func showDeteilFavorite(article: Article) {
         let view: UIViewController = deteilMostPopularAssembly.assemble(article: article)
         transitionHandler?.navigationController?.pushViewController(view, animated: true)

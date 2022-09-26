@@ -17,6 +17,7 @@ final class NetworkDataFetch {
     
     static let shared = NetworkDataFetch()
     
+    // MARK: - Initialization
     private init() {
     }
     

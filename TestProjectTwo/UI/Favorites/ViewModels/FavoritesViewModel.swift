@@ -15,7 +15,7 @@ struct FavoritesViewModel {
 }
 
 struct FavoritesViewModelCell {
-    let imageArticles: String?
+    let imageArticles: Data?
     let nameArticles: String
     let dateArticlesLabel: String
 }

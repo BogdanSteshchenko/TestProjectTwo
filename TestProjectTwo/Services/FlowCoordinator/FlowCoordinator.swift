@@ -18,7 +18,6 @@ final class FlowCoordinator: IFlowCoordinator {
     private let tabBarAssembly: ITabBarAssembly
     
     // MARK: - Initialization
-
     init(
         window: UIWindow,
         tabBarAssembly: ITabBarAssembly = TabBarAssembly()
@@ -28,7 +27,6 @@ final class FlowCoordinator: IFlowCoordinator {
     }
     
     // MARK: - IFlowCoordinator
-    
     func start() {
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
@@ -37,7 +35,6 @@ final class FlowCoordinator: IFlowCoordinator {
     }
     
     //MARK: - Private
-    
     private func switchToTabBar() {
         switchTo(tabBarAssembly.assemble())
     }

@@ -9,10 +9,13 @@ import UIKit
 
 final class FavoritesTableViewCell: UITableViewCell {
     
+    //UI element
     private let articlesLogo: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.cornerRadius = 20
         return imageView
     }()
     
@@ -33,14 +36,8 @@ final class FavoritesTableViewCell: UITableViewCell {
         
         return label
     }()
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        articlesLogo.layer.cornerRadius = 20
-        articlesLogo.contentMode = .scaleAspectFit
-    }
     
-    
+    //MARK: - Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -65,45 +62,37 @@ final class FavoritesTableViewCell: UITableViewCell {
     func configureArticlesCell(with viewModelCell: FavoritesViewModelCell) {
         nameArticlesLabel.text = viewModelCell.nameArticles
         dateArticlesLabel.text = viewModelCell.dateArticlesLabel
-        getImage(urlString: viewModelCell.imageArticles)
+        getImage(imageData: viewModelCell.imageArticles)
     }
     
-    private func getImage(urlString: String?) {
-        guard let  urlString = urlString else {
-            self.articlesLogo.image = UIImage(named: "default")
-            return }
-        guard let urlString = URL(string: urlString) else { return }
-        URLSession.shared.dataTask(with: urlString) { data, response, error in
-            if let error = error {
-                print("Error = \(error)")
-            } else {
-                guard let data = data else { return }
-                let image = UIImage(data: data)
-                DispatchQueue.main.sync {
-                    self.articlesLogo.image = image
-                }
-            }
-        }.resume()
-    }
     
+    private func getImage(imageData: Data?) {
+        if let imageData = imageData {
+            let image = UIImage(data: imageData)
+            articlesLogo.image = image
+        } else {
+            articlesLogo.image = UIImage(named: "default")
+        }
+    }
+
     //MARK: - Constrains
     private func setConsrains() {
-        NSLayoutConstraint.activate([
-            articlesLogo.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            articlesLogo.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            articlesLogo.heightAnchor.constraint(equalToConstant: 75),
-            articlesLogo.widthAnchor.constraint(equalToConstant: 75)
-        ])
-        NSLayoutConstraint.activate([
-            nameArticlesLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            nameArticlesLabel.leadingAnchor.constraint(equalTo: articlesLogo.trailingAnchor, constant: 10),
-            nameArticlesLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10)
-        ])
-        NSLayoutConstraint.activate([
-            dateArticlesLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
-            dateArticlesLabel.widthAnchor.constraint(equalToConstant: 120),
-            dateArticlesLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10)
-        ])
+        articlesLogo.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalTo(self.snp.leading).offset(15)
+            $0.height.equalTo(75)
+            $0.width.equalTo(75)
+        }
+        nameArticlesLabel.snp.makeConstraints {
+            $0.trailing.equalTo(self.snp.trailing).offset(-10)
+            $0.leading.equalTo(articlesLogo.snp.trailing).offset(10)
+            $0.top.equalTo(self.snp.top).offset(10)
+        }
+        dateArticlesLabel.snp.makeConstraints{
+            $0.bottom.equalTo(self.snp.bottom).offset(0)
+            $0.width.equalTo(120)
+            $0.trailing.equalTo(self.snp.trailing).offset(10)
+        }
     }
 }
 
