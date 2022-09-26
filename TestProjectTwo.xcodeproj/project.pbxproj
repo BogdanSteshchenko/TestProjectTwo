@@ -53,6 +53,7 @@
 		8BCB6B9828D4570C00127270 /* TestProjectTwo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8BCB6B9628D4570C00127270 /* TestProjectTwo.xcdatamodeld */; };
 		8BCB6B9A28D4570E00127270 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BCB6B9928D4570E00127270 /* Assets.xcassets */; };
 		8BCB6B9D28D4570E00127270 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BCB6B9B28D4570E00127270 /* LaunchScreen.storyboard */; };
+		8BD501D728E1E9D300CEF411 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD501D628E1E9D300CEF411 /* Notifications.swift */; };
 		8BFF255828DDB22400AD5CE3 /* DeteiFavoritesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF255728DDB22400AD5CE3 /* DeteiFavoritesFactory.swift */; };
 		8BFF255B28DDB25600AD5CE3 /* DeteilFavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF255A28DDB25600AD5CE3 /* DeteilFavoritesViewModel.swift */; };
 		8BFF255D28DDB27E00AD5CE3 /* DeteilFavoritesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF255C28DDB27E00AD5CE3 /* DeteilFavoritesAssembly.swift */; };
@@ -113,6 +114,7 @@
 		8BCB6B9928D4570E00127270 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BCB6B9C28D4570E00127270 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BCB6B9E28D4570E00127270 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BD501D628E1E9D300CEF411 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		8BFF255728DDB22400AD5CE3 /* DeteiFavoritesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteiFavoritesFactory.swift; sourceTree = "<group>"; };
 		8BFF255A28DDB25600AD5CE3 /* DeteilFavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilFavoritesViewModel.swift; sourceTree = "<group>"; };
 		8BFF255C28DDB27E00AD5CE3 /* DeteilFavoritesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilFavoritesAssembly.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 		8B70866228D46B2E00FDA74F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8BD501D528E1E9C800CEF411 /* Notifications */,
 				8B4B745228D9A5A4002B1C49 /* Alert */,
 				8B70866328D46BAA00FDA74F /* Extensions */,
 			);
@@ -430,6 +433,14 @@
 				8BCB6B9E28D4570E00127270 /* Info.plist */,
 			);
 			path = TestProjectTwo;
+			sourceTree = "<group>";
+		};
+		8BD501D528E1E9C800CEF411 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				8BD501D628E1E9D300CEF411 /* Notifications.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		8BFF255528DDB1D700AD5CE3 /* DeteilFavorites */ = {
@@ -642,6 +653,7 @@
 				8B99D14628DB54C100D03C52 /* TabBarController.swift in Sources */,
 				8B5C2A0C28D8687300F01BEE /* UIButton+Action.swift in Sources */,
 				8B7EF37928D8AB9C007D558C /* FavoritesViewModelFactory.swift in Sources */,
+				8BD501D728E1E9D300CEF411 /* Notifications.swift in Sources */,
 				8B7EF39128D8B189007D558C /* ArticlesModel.swift in Sources */,
 				8B0BB70D28DC4D24009D936E /* DeteilMostPopularPresenter.swift in Sources */,
 				8B70866128D4676D00FDA74F /* StartViewController.swift in Sources */,
