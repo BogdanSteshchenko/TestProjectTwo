@@ -7,11 +7,11 @@
 
 import UIKit
 
-struct DeteilFavoritesViewModel{
+struct DeteilFavoritesViewModel {
     let image: UIImage?
     let title: String?
     let section: String?
     let abstract: String?
     let byline: String?
-    let published_date: String?
+    let publishedDate: String?
 }

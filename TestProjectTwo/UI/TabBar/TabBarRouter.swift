@@ -15,4 +15,3 @@ final class TabBarRouter: ITabBarRouter {
     // Dependencies
     weak var transitionHandler: UIViewController?
 }
-

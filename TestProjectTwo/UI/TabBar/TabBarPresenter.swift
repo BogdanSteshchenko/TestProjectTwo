@@ -31,4 +31,3 @@ final class TabBarPresenter: ITabBarPresenter {
         view?.setup(viewModels: viewModels)
     }
 }
-

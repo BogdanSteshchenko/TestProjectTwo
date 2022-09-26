@@ -71,7 +71,7 @@ final class ArticlesTableViewCell: UITableViewCell {
             self.articlesLogo.image = UIImage(named: "default")
             return }
         guard let urlString = URL(string: urlString) else { return }
-        URLSession.shared.dataTask(with: urlString) { data, response, error in
+        URLSession.shared.dataTask(with: urlString) { data, _, error in
             if let error = error {
                 print("Error = \(error)")
             } else {
@@ -97,11 +97,10 @@ final class ArticlesTableViewCell: UITableViewCell {
             $0.leading.equalTo(articlesLogo.snp.trailing).offset(10)
             $0.top.equalTo(self.snp.top).offset(10)
         }
-        dateArticlesLabel.snp.makeConstraints{
+        dateArticlesLabel.snp.makeConstraints {
             $0.bottom.equalTo(self.snp.bottom).offset(0)
             $0.width.equalTo(120)
             $0.trailing.equalTo(self.snp.trailing).offset(10)
         }
     }
 }
-

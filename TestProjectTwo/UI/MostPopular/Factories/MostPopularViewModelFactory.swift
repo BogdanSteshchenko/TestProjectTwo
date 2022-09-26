@@ -25,9 +25,9 @@ final class MostPopularViewModelFactory: IMostPopularViewModelFactory {
         var mostPopularViewModelCell: [MostPopularViewModelCell] = []
         article.forEach { article in
             let productArticle: MostPopularViewModelCell = .init(
-                imageArticles: article.media?.first?.media_metadata[0].url,
+                imageArticles: article.media?.first?.mediaMetadata[0].url,
                 nameArticles: article.title,
-                dateArticlesLabel: article.published_date)
+                dateArticlesLabel: article.publishedDate)
             
             mostPopularViewModelCell.append(productArticle)
         }

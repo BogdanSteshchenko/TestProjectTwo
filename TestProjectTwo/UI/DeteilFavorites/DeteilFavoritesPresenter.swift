@@ -19,7 +19,6 @@ final class DeteilFavoritesPresenter: IDeteilFavoritesPresenter {
     private let router: IDeteilFavoritesRouter
     private var article: ArticleFavorite?
     
-    
     //MARK: - Initialization
     init(
         viewModelFactory: IDeteiFavoritesFactory,

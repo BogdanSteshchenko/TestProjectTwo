@@ -88,12 +88,10 @@ final class FavoritesTableViewCell: UITableViewCell {
             $0.leading.equalTo(articlesLogo.snp.trailing).offset(10)
             $0.top.equalTo(self.snp.top).offset(10)
         }
-        dateArticlesLabel.snp.makeConstraints{
+        dateArticlesLabel.snp.makeConstraints {
             $0.bottom.equalTo(self.snp.bottom).offset(0)
             $0.width.equalTo(120)
             $0.trailing.equalTo(self.snp.trailing).offset(10)
         }
     }
 }
-
-

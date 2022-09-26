@@ -12,56 +12,43 @@ class WorkCoreDate {
     
     static let shared = WorkCoreDate()
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context: NSManagedObjectContext? = {
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            return context
+        }
+        return nil
+    }()
     
     private init() {
     }
     
     func createItem(article: Article) {
-        let allArticle = try? context.fetch(ArticleFavorite.fetchRequest())
-        var flag = false
-        if allArticle != [] {
-            for index in 0...allArticle!.count - 1 {
-                if article.title == allArticle?[index].titleFavorite  {
-                    flag = true
-                    break
-                } else {
-                    flag = false
-                }
+        guard let allArticles = try? context?.fetch(ArticleFavorite.fetchRequest()),
+              let context = context else { return }
+        if !allArticles.contains(where: { $0.id == article.id }) {
+            let newArticle = ArticleFavorite(context: context)
+            newArticle.titleFavorite = article.title
+            newArticle.published_dateFavorite = article.publishedDate
+            newArticle.sectionFavorite = article.section
+            newArticle.bylineFavorite = article.byline
+            newArticle.abstractFavorite = article.abstract
+            newArticle.id = article.id
+            
+            if let dataImage = fromJpegToData(urlString: article.media?.first?.mediaMetadata[2].url) {
+                newArticle.urlFavorite = dataImage
             }
-            if flag {
-                return
-            } else {
-                self.createArticle(article: article)
-                flag = false
+            do {
+                try context.save()
+            } catch {
+                print("Error")
             }
-        } else {
-            self.createArticle(article: article)
-        }
-    }
-
-    func createArticle(article: Article) {
-        let newArticle = ArticleFavorite(context: context)
-        newArticle.titleFavorite = article.title
-        newArticle.published_dateFavorite = article.published_date
-        newArticle.sectionFavorite = article.section
-        newArticle.bylineFavorite = article.byline
-        newArticle.abstractFavorite = article.abstract
-        
-        if let dataImage = fromJpegToData(urlString: article.media?.first?.media_metadata[2].url) {
-            newArticle.urlFavorite = dataImage
-        }
-        
-        do {
-            try context.save()
-        } catch {
-            print("Error")
         }
     }
     
     func getAllOfflineArticles(responce: @escaping ([ArticleFavorite]?, Error?) -> Void) {
         do {
-           let article = try context.fetch(ArticleFavorite.fetchRequest())
+            guard let context = context else { return }
+            let article = try context.fetch(ArticleFavorite.fetchRequest())
             responce(article, nil)
         } catch {
             responce(nil, NSError())
@@ -69,6 +56,7 @@ class WorkCoreDate {
     }
     
     func deleteItem(article: ArticleFavorite, responce: @escaping ([ArticleFavorite]?, Error?) -> Void) {
+        guard let context = context else { return }
         context.delete(article as NSManagedObject)
         let fetchRequest: NSFetchRequest<ArticleFavorite> = ArticleFavorite.fetchRequest()
         do {
@@ -82,8 +70,8 @@ class WorkCoreDate {
     
     private func fromJpegToData(urlString: String?) -> Data? {
         do {
-            guard let urlString = urlString else { return nil }
-            guard let url = URL(string: urlString) else { return nil }
+            guard let urlString = urlString,
+                  let url = URL(string: urlString) else { return nil }
             let data = try Data(contentsOf: url)
             let image = UIImage(data: data)
             guard let imageData = image?.jpegData(compressionQuality: 1.0) else { return nil }
@@ -93,4 +81,3 @@ class WorkCoreDate {
         }
     }
 }
-

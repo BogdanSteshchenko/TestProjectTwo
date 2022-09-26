@@ -29,7 +29,7 @@ final class FavoritesRouter: IFavoriteRouter {
         transitionHandler?.navigationController?.pushViewController(view, animated: true)
     }
     func deleteArticle(article: ArticleFavorite) {
-        WorkCoreDate.shared.deleteItem(article: article) { article, error in
+        WorkCoreDate.shared.deleteItem(article: article) { _, _ in
             
         }
     }

@@ -3,6 +3,7 @@
     <entity name="ArticleFavorite" representedClassName="ArticleFavorite" syncable="YES" codeGenerationType="class">
         <attribute name="abstractFavorite" optional="YES" attributeType="String"/>
         <attribute name="bylineFavorite" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="mediaFavorite" optional="YES" attributeType="String"/>
         <attribute name="published_dateFavorite" optional="YES" attributeType="String"/>
         <attribute name="sectionFavorite" optional="YES" attributeType="String"/>

@@ -21,6 +21,7 @@ final class DeteilMostPopularViewController: UIViewController,
     private var model: DeteilMostPopularViewModel?
     
     // UI elements
+    private let scrollView: UIScrollView = UIScrollView()
     private let imageArticle: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
@@ -30,7 +31,6 @@ final class DeteilMostPopularViewController: UIViewController,
     }()
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = ""
         label.numberOfLines = 0
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 20)
@@ -40,7 +40,6 @@ final class DeteilMostPopularViewController: UIViewController,
     }()
     private let sectionLabel: UILabel = {
         let label = UILabel()
-        label.text = ""
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -49,7 +48,6 @@ final class DeteilMostPopularViewController: UIViewController,
     }()
     private let abstractLabel: UILabel = {
         let label = UILabel()
-        label.text = ""
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -58,7 +56,6 @@ final class DeteilMostPopularViewController: UIViewController,
     }()
     private let bylineLabel: UILabel = {
         let label = UILabel()
-        label.text = ""
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -67,7 +64,6 @@ final class DeteilMostPopularViewController: UIViewController,
     }()
     private let dateLabel: UILabel = {
         let label = UILabel()
-        label.text = ""
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -104,95 +100,96 @@ final class DeteilMostPopularViewController: UIViewController,
         sectionLabel.text = model?.section
         abstractLabel.text = model?.abstract
         bylineLabel.text = model?.byline
-        dateLabel.text = model?.published_date
+        dateLabel.text = model?.publishedDate
         imageArticle.image = model?.image
         addFavoriteButton.setup(with: viewModel.addFavorite)
     }
     
     //MARK: - Private
     private func setup() {
+        setupScrollView()
         setupImageArticle()
         setupTitleLabel()
         setupSectionLabel()
         setupAbstractLabel()
         setupBylineLabel()
         setupDateLabel()
-//        setupAddFavoriteButton()
-        setupAddFavoriteButton2()
+        setupAddFavoriteButton()
         
         view.backgroundColor = .white
     }
+    private func setupScrollView() {
+        view.addSubview(scrollView)
+        scrollView.snp.makeConstraints {
+            $0.leading.equalTo(view.snp.leading)
+            $0.trailing.equalTo(view.snp.trailing)
+            $0.top.equalTo(view.snp.top)
+            $0.bottom.equalTo(view.snp.bottom)
+            scrollView.contentSize.height = 1000
+        }
+    }
     private func setupImageArticle() {
-        view.addSubview(imageArticle)
-        NSLayoutConstraint.activate([
-            imageArticle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageArticle.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            imageArticle.heightAnchor.constraint(equalToConstant: 250),
-            imageArticle.widthAnchor.constraint(equalToConstant: 250)
-        ])
+        scrollView.addSubview(imageArticle)
+        imageArticle.snp.makeConstraints {
+            $0.centerX.equalTo(scrollView.snp.centerX)
+            $0.top.equalTo(scrollView.snp.top).offset(50)
+            $0.height.equalTo(250)
+            $0.width.equalTo(250)
+        }
     }
     
     private func setupTitleLabel() {
-        view.addSubview(titleLabel)
-        NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: imageArticle.bottomAnchor, constant: 10),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
-        ])
+        scrollView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints {
+            $0.centerX.equalTo(scrollView.snp.centerX)
+            $0.top.equalTo(imageArticle.snp.bottom).offset(10)
+            $0.leading.equalTo(scrollView.snp.leading).offset(20)
+        }
     }
     
     private func setupSectionLabel() {
-        view.addSubview(sectionLabel)
-        NSLayoutConstraint.activate([
-            sectionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            sectionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
-            sectionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
-        ])
-
+        scrollView.addSubview(sectionLabel)
+        sectionLabel.snp.makeConstraints {
+            $0.centerX.equalTo(scrollView.snp.centerX)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(10)
+            $0.leading.equalTo(scrollView.snp.leading).offset(20)
+        }
     }
     
     private func setupAbstractLabel() {
-        view.addSubview(abstractLabel)
-        NSLayoutConstraint.activate([
-            abstractLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            abstractLabel.topAnchor.constraint(equalTo: sectionLabel.bottomAnchor, constant: 10),
-            abstractLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
-        ])
+        scrollView.addSubview(abstractLabel)
+        abstractLabel.snp.makeConstraints {
+            $0.centerX.equalTo(scrollView.snp.centerX)
+            $0.top.equalTo(sectionLabel.snp.bottom).offset(10)
+            $0.leading.equalTo(scrollView.snp.leading).offset(20)
+        }
     }
     
     private func setupBylineLabel() {
-        view.addSubview(bylineLabel)
-        NSLayoutConstraint.activate([
-            bylineLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            bylineLabel.topAnchor.constraint(equalTo: abstractLabel.bottomAnchor, constant: 25),
-            bylineLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
-        ])
+        scrollView.addSubview(bylineLabel)
+        bylineLabel.snp.makeConstraints {
+            $0.centerX.equalTo(scrollView.snp.centerX)
+            $0.top.equalTo(abstractLabel.snp.bottom).offset(25)
+            $0.leading.equalTo(scrollView.snp.leading).offset(20)
+        }
     }
     
     private func setupDateLabel() {
-        view.addSubview(dateLabel)
-        NSLayoutConstraint.activate([
-            dateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            dateLabel.topAnchor.constraint(equalTo: bylineLabel.bottomAnchor, constant: 25),
-            dateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
-        ])
+        scrollView.addSubview(dateLabel)
+        dateLabel.snp.makeConstraints {
+//            $0.centerX.equalTo(scrollView.snp.centerX)
+            $0.top.equalTo(bylineLabel.snp.bottom).offset(25)
+            $0.leading.equalTo(scrollView.snp.leading).offset(20)
+            $0.width.equalTo(100)
+        }
     }
     
     private func setupAddFavoriteButton() {
-        view.addSubview(addFavoriteButton)
-        NSLayoutConstraint.activate([
-            addFavoriteButton.widthAnchor.constraint(equalToConstant: 70),
-            addFavoriteButton.heightAnchor.constraint(equalToConstant: 37),
-            addFavoriteButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            addFavoriteButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 50)
-        ])
-    }
-    
-    private func setupAddFavoriteButton2() {
-        view.addSubview(addFavoriteButton)
+        scrollView.addSubview(addFavoriteButton)
         addFavoriteButton.snp.makeConstraints {
             $0.centerY.equalTo(dateLabel.snp.centerY)
-            $0.leading.equalTo(dateLabel)
+            $0.leading.equalTo(dateLabel.snp.trailing).offset(25)
+//            $0.trailing.equalTo(view.snp.trailing).offset(25)
             $0.width.equalTo(150)
             $0.height.equalTo(27)
         }

@@ -1,0 +1,15 @@
+disabled_rules:
+  - colon
+  - comma
+  - control_statement
+  - line_length
+  - trailing_whitespace
+  - comment_spacing
+  - mark
+  - vertical_whitespace
+
+excluded:
+  - Carthage
+  - Pods
+  - Source/ExcludedFolder
+  - Source/ExcludedFile.swift

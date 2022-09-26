@@ -58,4 +58,3 @@ extension UIBarButtonItem {
         primaryActionClosure?()
     }
 }
-

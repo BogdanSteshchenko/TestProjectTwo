@@ -97,7 +97,7 @@ extension MostPopularViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ArticlesTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? ArticlesTableViewCell else { return UITableViewCell() }
 
         guard let article = self.mostPopularViewModelForCell?[indexPath.row] else { return UITableViewCell() }
 
@@ -123,7 +123,7 @@ extension MostPopularViewController: UITableViewDelegate {
 //MARK: - Constrains
 extension MostPopularViewController {
     private func setConstrains() {
-        tableView.snp.makeConstraints{
+        tableView.snp.makeConstraints {
             $0.trailing.equalTo(view.snp.trailing).offset(0)
             $0.leading.equalTo(view.snp.leading).offset(0)
             $0.top.equalTo(view.snp.top).offset(0)
@@ -131,4 +131,3 @@ extension MostPopularViewController {
         }
     }
 }
-

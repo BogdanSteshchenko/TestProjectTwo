@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol IDeteilMostPopularFactory {
     func makeViewModel (actions: DeteilMostPopularActions, model: Article) -> DeteilMostPopularViewModel
@@ -16,12 +17,12 @@ final class DeteilMostPopularFactory: IDeteilMostPopularFactory {
     //MARK: - IDeteilMostPopularFactory
     func makeViewModel(actions: DeteilMostPopularActions, model: Article) -> DeteilMostPopularViewModel {
         .init(
-            image: getImafe(urlString: model.media?.first?.media_metadata[2].url),
+            image: getImafe(urlString: model.media?.first?.mediaMetadata[2].url),
             title: model.title,
             section: model.section,
             abstract: model.abstract,
             byline: model.byline,
-            published_date: model.published_date,
+            publishedDate: model.publishedDate,
             addFavorite: makeAddFavoriteButtonModel(actions: actions))
     }
     
@@ -44,6 +45,12 @@ final class DeteilMostPopularFactory: IDeteilMostPopularFactory {
         }
     }
     private func loadImage(urlString: String?) -> UIImage? {
+        
+//        guard let urlString = urlString else { return nil }
+//        let image = KFImage(URL(string: urlString))
+//        return image
+        
+        
         do {
             guard let urlString = urlString else { return nil }
             guard let url = URL(string: urlString) else { return nil }

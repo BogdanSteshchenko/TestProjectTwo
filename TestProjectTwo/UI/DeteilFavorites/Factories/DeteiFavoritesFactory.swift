@@ -21,7 +21,7 @@ final class DeteiFavoritesFactory: IDeteiFavoritesFactory {
             section: model.sectionFavorite,
             abstract: model.abstractFavorite,
             byline: model.bylineFavorite,
-            published_date: model.published_dateFavorite)
+            publishedDate: model.published_dateFavorite)
     }
     
     //MARK: - Private

@@ -55,6 +55,7 @@ final class StartViewController: UIViewController, IStartViewController {
         setupMostEmailedButton()
         setupMostViewedButton()
     }
+    
     private func setupMostEmailedButton() {
         view.addSubview(mostEmailedButton)
         mostEmailedButton.snp.makeConstraints {
@@ -64,6 +65,7 @@ final class StartViewController: UIViewController, IStartViewController {
             $0.height.equalTo(37)
         }
     }
+
     private func setupMostSharedButton() {
         view.addSubview(mostSharedButton)
         mostSharedButton.snp.makeConstraints {
@@ -73,6 +75,7 @@ final class StartViewController: UIViewController, IStartViewController {
             $0.height.equalTo(37)
         }
     }
+
     private func setupMostViewedButton() {
         view.addSubview(mostViewedButton)
         mostViewedButton.snp.makeConstraints {
@@ -83,4 +86,3 @@ final class StartViewController: UIViewController, IStartViewController {
         }
     }
 }
-

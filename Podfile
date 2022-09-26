@@ -5,4 +5,6 @@ use_frameworks!
 target 'TestProjectTwo' do
 pod 'Alamofire'
 pod 'SnapKit'
+pod 'SwiftLint'
+pod 'Kingfisher'
 end

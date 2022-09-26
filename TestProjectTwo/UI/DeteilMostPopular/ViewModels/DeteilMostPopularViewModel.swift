@@ -7,13 +7,13 @@
 
 import UIKit
 
-struct DeteilMostPopularViewModel{
+struct DeteilMostPopularViewModel {
     let image: UIImage?
     let title: String?
     let section: String?
     let abstract: String?
     let byline: String?
-    let published_date: String?
+    let publishedDate: String?
     
     let addFavorite: ButtonViewModel
 }

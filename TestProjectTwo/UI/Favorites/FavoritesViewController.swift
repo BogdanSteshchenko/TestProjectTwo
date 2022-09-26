@@ -118,7 +118,7 @@ extension FavoritesViewController: UITableViewDelegate {
 //MARK: - Constrains
 extension FavoritesViewController {
     private func setConstrains() {
-        tableView.snp.makeConstraints{
+        tableView.snp.makeConstraints {
             $0.trailing.equalTo(view.snp.trailing).offset(0)
             $0.leading.equalTo(view.snp.leading).offset(0)
             $0.top.equalTo(view.snp.top).offset(0)
@@ -126,4 +126,3 @@ extension FavoritesViewController {
         }
     }
 }
-
