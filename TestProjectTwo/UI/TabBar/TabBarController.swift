@@ -14,12 +14,10 @@ protocol ITabBarController: AnyObject {
 final class TabBarController: UITabBarController, UITabBarControllerDelegate, ITabBarController {
     
     // Dependencies
-    
     private let presenter: ITabBarPresenter
     private let tabBarViewControllersResolver: ITabBarViewControllersResolver
     
     // MARK: - Initialization
-    
     init(presenter: ITabBarPresenter, tabBarViewControllersResolver: ITabBarViewControllersResolver) {
         self.presenter = presenter
         self.tabBarViewControllersResolver = tabBarViewControllersResolver
@@ -32,7 +30,6 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate, IT
     }
     
     // MARK: - Life cycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,7 +48,6 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate, IT
     }
     
     // MARK: - ITabBarController
-    
     func setup(viewModels: [TabBarViewModel]) {
         let viewControllers: [UIViewController] = viewModels.map { viewModel in
             let viewController: UIViewController = tabBarViewControllersResolver.resolveViewController(

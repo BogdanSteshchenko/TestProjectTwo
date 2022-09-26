@@ -12,6 +12,7 @@ class NetworkRequest {
     
     static let shared = NetworkRequest()
     
+    // MARK: - Initialization
     private init() {
     }
     

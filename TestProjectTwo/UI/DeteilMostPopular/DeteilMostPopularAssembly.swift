@@ -19,7 +19,6 @@ final class DeteilMostPopularAssembly: IDeteilMostPopularAssembly {
         let view = DeteilMostPopularViewController(presenter: presenter, article: article)
         presenter.view = view
         
-        
         return view
     }    
 }

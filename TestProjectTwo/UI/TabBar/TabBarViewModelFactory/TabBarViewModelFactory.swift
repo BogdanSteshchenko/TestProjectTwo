@@ -24,7 +24,6 @@ final class TabBarViewModelFactory: ITabBarViewModelFactory {
                 title: "Favorites",
                 image: UIImage(systemName: "star.fill"),
                 tag: 1))
-            
         ]
     }
 }

@@ -21,14 +21,13 @@ final class FavoritesViewController: UIViewController, IFavoritesViewController 
     //UI Elements
     private let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(ArticlesTableViewCell.self, forCellReuseIdentifier: "CellFavorites")
+        tableView.register(FavoritesTableViewCell.self, forCellReuseIdentifier: "CellFavorites")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
     
     //MARK: - Initialization
-    
     init(presenter: IFavoritesPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
@@ -38,16 +37,17 @@ final class FavoritesViewController: UIViewController, IFavoritesViewController 
     }
     
     // MARK: - Life cycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         presenter.viewDidLoad()
     }
     
     // MARK: - IFavoritesViewController
-    
     func setup(with viewModel: FavoritesViewModel) {
         favoritesViewModelForCell = viewModel.shelves
         
@@ -59,7 +59,6 @@ final class FavoritesViewController: UIViewController, IFavoritesViewController 
     }
     
     //MARK: - Private
-    
     private func setup() {
         setupViews()
         setupDelegate()
@@ -103,17 +102,28 @@ extension FavoritesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         90
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didTapDeteilAcrticle(number: indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            presenter.deleteArticle(number: indexPath.row)
+            presenter.viewDidLoad()
+        }
+    }
 }
 
 //MARK: - Constrains
 extension FavoritesViewController {
     private func setConstrains() {
-        NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
-        ])
+        tableView.snp.makeConstraints{
+            $0.trailing.equalTo(view.snp.trailing).offset(0)
+            $0.leading.equalTo(view.snp.leading).offset(0)
+            $0.top.equalTo(view.snp.top).offset(0)
+            $0.bottom.equalTo(view.snp.bottom).offset(0)
+        }
     }
 }
 

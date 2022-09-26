@@ -11,6 +11,7 @@ class AlertError {
     
     static let shared = AlertError()
     
+    // MARK: - Initialization
     private init() {
     }
     

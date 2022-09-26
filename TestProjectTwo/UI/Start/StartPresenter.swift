@@ -34,13 +34,11 @@ final class StartPresenter: StartActions, IStartPresenter {
     }
 
     // MARK: - Life cycle
-    
     func viewDidLoad() {
         view?.setup(with: viewModelFactory.makeViewModel(actions: self))
     }
 
     // MARK: - StartActions
-    
     func didTapMostEmailed() {
         router.showDetailMostEmailed()
     }

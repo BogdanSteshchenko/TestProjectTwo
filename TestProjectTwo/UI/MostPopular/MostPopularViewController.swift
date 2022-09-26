@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 protocol IMostPopularViewController: AnyObject {
     func setup(with viewModel: MostPopularViewModel)
@@ -34,7 +35,6 @@ final class MostPopularViewController: UIViewController, IMostPopularViewControl
     }()
     
     //MARK: - Initialization
-    
     init(presenter: IMostPopularPresenter, sectionTitle: String) {
         self.presenter = presenter
         self.sectionTitle = sectionTitle
@@ -46,7 +46,6 @@ final class MostPopularViewController: UIViewController, IMostPopularViewControl
     }
     
     // MARK: - Life cycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -55,7 +54,6 @@ final class MostPopularViewController: UIViewController, IMostPopularViewControl
     }
     
     // MARK: - IMostPopularViewController
-    
     func setup(with viewModel: MostPopularViewModel) {
         mostPopularViewModelForCell = viewModel.shelves
         reloadData()
@@ -68,7 +66,6 @@ final class MostPopularViewController: UIViewController, IMostPopularViewControl
     
     
     //MARK: - Private
-    
     private func setup() {
         setupViews()
         setupDelegate()
@@ -126,12 +123,12 @@ extension MostPopularViewController: UITableViewDelegate {
 //MARK: - Constrains
 extension MostPopularViewController {
     private func setConstrains() {
-        NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
-        ])
+        tableView.snp.makeConstraints{
+            $0.trailing.equalTo(view.snp.trailing).offset(0)
+            $0.leading.equalTo(view.snp.leading).offset(0)
+            $0.top.equalTo(view.snp.top).offset(0)
+            $0.bottom.equalTo(view.snp.bottom).offset(0)
+        }
     }
 }
 

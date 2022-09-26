@@ -19,7 +19,6 @@ final class TabBarPresenter: ITabBarPresenter {
     private let viewModelFactory: ITabBarViewModelFactory
     
     // MARK: - Initialization
-    
     init(router: TabBarRouter,
          viewModelFactory: ITabBarViewModelFactory) {
         self.router = router
@@ -27,7 +26,6 @@ final class TabBarPresenter: ITabBarPresenter {
     }
     
     // MARK: - ITabBarPresenter
-    
     func viewWillAppear() {
         let viewModels: [TabBarViewModel] = viewModelFactory.makeViewModels()
         view?.setup(viewModels: viewModels)

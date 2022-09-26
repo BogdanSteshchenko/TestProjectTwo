@@ -14,7 +14,6 @@ protocol IStartViewModelFactory {
 final class StartViewModelFactory: IStartViewModelFactory {
     
     // MARK: - IStartViewModelFactory
-    
     func makeViewModel(actions: StartActions) -> StartViewModel {
         .init(
             mostEmailedButtonModel: makeMostEmailedButtonModel(actions: actions),
@@ -25,7 +24,6 @@ final class StartViewModelFactory: IStartViewModelFactory {
     
     
     //MARK: - Private
-    
     private func makeMostEmailedButtonModel(actions: StartActions) -> ButtonViewModel {
         .init(
             title: "Most emailed",
