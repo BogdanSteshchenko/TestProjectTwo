@@ -64,6 +64,8 @@ final class FavoritesViewController: UIViewController, IFavoritesViewController 
         setupDelegate()
         setNavigationBar()
         setConstrains()
+        
+        view.backgroundColor = .white
     }
     
     private func setupViews() {

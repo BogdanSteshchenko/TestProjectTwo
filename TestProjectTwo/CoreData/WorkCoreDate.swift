@@ -33,6 +33,7 @@ class WorkCoreDate {
             newArticle.bylineFavorite = article.byline
             newArticle.abstractFavorite = article.abstract
             newArticle.id = article.id
+            newArticle.url = article.url
             
             if let dataImage = fromJpegToData(urlString: article.media?.first?.mediaMetadata[2].url) {
                 newArticle.urlFavorite = dataImage

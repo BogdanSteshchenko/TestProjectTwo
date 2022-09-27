@@ -20,7 +20,6 @@ struct ButtonViewModel {
     }
 }
 
-
 extension UIButton {
     
     func setup(with viewModel: ButtonViewModel) {
@@ -33,5 +32,26 @@ extension UIButton {
         titleLabel?.font = UIFont(name: "Apple Symbols", size: 25)
         backgroundColor = .lightGray
         setTitleColor(.black, for: .normal)
+    }
+}
+
+struct ButtonNavigationBar {
+    let title: String?
+    let action: () -> Void
+    
+    init(
+        title: String?,
+        action: @escaping () -> Void
+    ) {
+        self.title = title
+        self.action = action
+    }
+}
+
+extension UIBarButtonItem {
+    
+    func setup(with viewModel: ButtonNavigationBar) {
+        title = viewModel.title
+        primaryActionClosure = viewModel.action
     }
 }

@@ -23,7 +23,9 @@ final class DeteilMostPopularFactory: IDeteilMostPopularFactory {
             abstract: model.abstract,
             byline: model.byline,
             publishedDate: model.publishedDate,
-            addFavorite: makeAddFavoriteButtonModel(actions: actions))
+            addFavorite: makeAddFavoriteButtonModel(actions: actions),
+            shareUrl: makeShareUrlButton(actions: actions))
+        
     }
     
     //MARK: - Private
@@ -32,6 +34,15 @@ final class DeteilMostPopularFactory: IDeteilMostPopularFactory {
             title: "Add favorite",
             action: { [weak actions] in
                 actions?.didTapAddfavorite()
+            }
+        )
+    }
+    
+    private func makeShareUrlButton(actions: DeteilMostPopularActions) -> ButtonNavigationBar {
+        .init(
+            title: "Share",
+            action: { [weak actions] in
+                actions?.didTapShareUrl()
             }
         )
     }
@@ -45,11 +56,6 @@ final class DeteilMostPopularFactory: IDeteilMostPopularFactory {
         }
     }
     private func loadImage(urlString: String?) -> UIImage? {
-        
-//        guard let urlString = urlString else { return nil }
-//        let image = KFImage(URL(string: urlString))
-//        return image
-        
         
         do {
             guard let urlString = urlString else { return nil }

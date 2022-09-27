@@ -9,6 +9,7 @@ import Foundation
 
 protocol DeteilMostPopularActions: AnyObject {
     func didTapAddfavorite()
+    func didTapShareUrl()
 }
 
 protocol IDeteilMostPopularPresenter {
@@ -42,5 +43,10 @@ final class DeteilMostPopularPresenter: DeteilMostPopularActions, IDeteilMostPop
     func didTapAddfavorite() {
         guard let article = article else { return }
         router.addNewFavoriteArticle(article: article)
+    }
+    
+    func didTapShareUrl() {
+        guard let article = article else { return }
+        router.shareUrl(article: article)
     }
 }

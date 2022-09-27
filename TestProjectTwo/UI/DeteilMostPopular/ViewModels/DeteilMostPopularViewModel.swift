@@ -16,4 +16,5 @@ struct DeteilMostPopularViewModel {
     let publishedDate: String?
     
     let addFavorite: ButtonViewModel
+    let shareUrl: ButtonNavigationBar
 }

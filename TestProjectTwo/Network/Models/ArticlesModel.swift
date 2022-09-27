@@ -12,6 +12,7 @@ struct ArticlesModel: Decodable {
 }
 
 struct Article: Decodable {
+    let url: String
     let id: Double
     let publishedDate: String
     let section: String
@@ -21,6 +22,7 @@ struct Article: Decodable {
     let media: [Media]?
     
     enum CodingKeys: String, CodingKey {
+        case url
         case id
         case publishedDate = "published_date"
         case section

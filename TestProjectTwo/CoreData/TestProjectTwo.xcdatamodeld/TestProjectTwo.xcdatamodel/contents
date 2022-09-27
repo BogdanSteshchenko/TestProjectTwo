@@ -8,6 +8,7 @@
         <attribute name="published_dateFavorite" optional="YES" attributeType="String"/>
         <attribute name="sectionFavorite" optional="YES" attributeType="String"/>
         <attribute name="titleFavorite" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
         <attribute name="urlFavorite" optional="YES" attributeType="Binary"/>
     </entity>
 </model>

@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 protocol IDeteilMostPopularViewController {
+    var activityViewConroller: UIActivityViewController? { get }
     func setup(with viewModel: DeteilMostPopularViewModel)
 }
 
@@ -21,6 +22,7 @@ final class DeteilMostPopularViewController: UIViewController,
     private var model: DeteilMostPopularViewModel?
     
     // UI elements
+    var activityViewConroller: UIActivityViewController?
     private let scrollView: UIScrollView = UIScrollView()
     private let imageArticle: UIImageView = {
         let imageView = UIImageView()
@@ -33,6 +35,7 @@ final class DeteilMostPopularViewController: UIViewController,
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
+        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -41,6 +44,7 @@ final class DeteilMostPopularViewController: UIViewController,
     private let sectionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -49,6 +53,7 @@ final class DeteilMostPopularViewController: UIViewController,
     private let abstractLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -57,6 +62,7 @@ final class DeteilMostPopularViewController: UIViewController,
     private let bylineLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -65,13 +71,14 @@ final class DeteilMostPopularViewController: UIViewController,
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
-    
     private let addFavoriteButton: UIButton = UIButton(type: .system)
+    private let shareUrlButton: UIBarButtonItem = UIBarButtonItem()
     
     // MARK: - Initialization
     init(presenter: IDeteilMostPopularPresenter, article: Article) {
@@ -103,6 +110,7 @@ final class DeteilMostPopularViewController: UIViewController,
         dateLabel.text = model?.publishedDate
         imageArticle.image = model?.image
         addFavoriteButton.setup(with: viewModel.addFavorite)
+        shareUrlButton.setup(with: viewModel.shareUrl)
     }
     
     //MARK: - Private
@@ -115,6 +123,7 @@ final class DeteilMostPopularViewController: UIViewController,
         setupBylineLabel()
         setupDateLabel()
         setupAddFavoriteButton()
+        setupShareUrl()
         
         view.backgroundColor = .white
     }
@@ -177,7 +186,6 @@ final class DeteilMostPopularViewController: UIViewController,
     private func setupDateLabel() {
         scrollView.addSubview(dateLabel)
         dateLabel.snp.makeConstraints {
-//            $0.centerX.equalTo(scrollView.snp.centerX)
             $0.top.equalTo(bylineLabel.snp.bottom).offset(25)
             $0.leading.equalTo(scrollView.snp.leading).offset(20)
             $0.width.equalTo(100)
@@ -189,9 +197,12 @@ final class DeteilMostPopularViewController: UIViewController,
         addFavoriteButton.snp.makeConstraints {
             $0.centerY.equalTo(dateLabel.snp.centerY)
             $0.leading.equalTo(dateLabel.snp.trailing).offset(25)
-//            $0.trailing.equalTo(view.snp.trailing).offset(25)
             $0.width.equalTo(150)
             $0.height.equalTo(27)
         }
+    }
+    
+    private func setupShareUrl() {
+        self.navigationItem.rightBarButtonItem = shareUrlButton
     }
 }
