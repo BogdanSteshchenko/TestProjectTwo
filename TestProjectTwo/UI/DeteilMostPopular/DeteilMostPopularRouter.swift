@@ -22,7 +22,18 @@ final class DeteilMostPopularRouter: IDeteilMostPopularRouter {
         WorkCoreDate.shared.createItem(article: article)
     }
     func shareUrl(article: Article) {
-        let activityViewConroller = UIActivityViewController(activityItems: [article.url], applicationActivities: nil)
-        transitionHandler?.present(activityViewConroller, animated: true)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            let activityViewConroller = UIActivityViewController(activityItems: [article.url], applicationActivities: nil)
+            
+            activityViewConroller.popoverPresentationController?.sourceView = transitionHandler?.navigationController?.navigationBar
+
+            let frame = CGRect(x: transitionHandler!.navigationController!.navigationBar.frame.maxX - 50, y: 30, width: 0, height: 0)
+            activityViewConroller.popoverPresentationController?.sourceRect = frame
+            transitionHandler?.present(activityViewConroller, animated: true)
+            
+        } else {
+            let activityViewConroller = UIActivityViewController(activityItems: [article.url], applicationActivities: nil)
+            transitionHandler?.present(activityViewConroller, animated: true)
+        }
     }
 }

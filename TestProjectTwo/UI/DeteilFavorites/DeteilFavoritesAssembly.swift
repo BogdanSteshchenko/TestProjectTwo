@@ -18,6 +18,7 @@ final class DeteilFavoritesAssembly: IDeteilFavoritesAssembly {
         let presenter: DeteilFavoritesPresenter = DeteilFavoritesPresenter(viewModelFactory: viewModelFactory, router: router)
         let view = DeteilFavoritesViewController(presenter: presenter, article: acticle)
         presenter.view = view
+        router.transitionHandler = view
         
         return view
     }

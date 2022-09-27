@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 
 protocol IDeteilMostPopularViewController {
-    var activityViewConroller: UIActivityViewController? { get }
     func setup(with viewModel: DeteilMostPopularViewModel)
 }
 
@@ -22,7 +21,6 @@ final class DeteilMostPopularViewController: UIViewController,
     private var model: DeteilMostPopularViewModel?
     
     // UI elements
-    var activityViewConroller: UIActivityViewController?
     private let scrollView: UIScrollView = UIScrollView()
     private let imageArticle: UIImageView = {
         let imageView = UIImageView()
@@ -31,7 +29,7 @@ final class DeteilMostPopularViewController: UIViewController,
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    private let titleLabel: UILabel = {
+    let titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center

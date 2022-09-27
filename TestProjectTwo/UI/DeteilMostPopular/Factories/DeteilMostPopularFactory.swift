@@ -55,6 +55,7 @@ final class DeteilMostPopularFactory: IDeteilMostPopularFactory {
             return image
         }
     }
+    
     private func loadImage(urlString: String?) -> UIImage? {
         
         do {

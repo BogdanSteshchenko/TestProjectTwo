@@ -73,6 +73,7 @@ final class DeteilFavoritesViewController: UIViewController, IDeteilFavoritesVie
         
         return label
     }()
+    private let shareUrlButton: UIBarButtonItem = UIBarButtonItem()
     
     // MARK: - Initialization
     init(presenter: IDeteilFavoritesPresenter, article: ArticleFavorite) {
@@ -103,6 +104,7 @@ final class DeteilFavoritesViewController: UIViewController, IDeteilFavoritesVie
         bylineLabel.text = model?.byline
         dateLabel.text = model?.publishedDate
         imageArticle.image = model?.image
+        shareUrlButton.setup(with: viewModel.shareUrl)
     }
     
     //MARK: - Private
@@ -114,6 +116,7 @@ final class DeteilFavoritesViewController: UIViewController, IDeteilFavoritesVie
         setupAbstractLabel()
         setupBylineLabel()
         setupDateLabel()
+        setupShareUrl()
         
         view.backgroundColor = .white
     }
@@ -180,5 +183,9 @@ final class DeteilFavoritesViewController: UIViewController, IDeteilFavoritesVie
             $0.top.equalTo(bylineLabel.snp.bottom).offset(25)
             $0.leading.equalTo(scrollView.snp.leading).offset(25)
         }
+    }
+    
+    private func setupShareUrl() {
+        self.navigationItem.rightBarButtonItem = shareUrlButton
     }
 }

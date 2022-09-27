@@ -8,23 +8,33 @@
 import UIKit
 
 protocol IDeteiFavoritesFactory {
-    func makeViewModel (model: ArticleFavorite) -> DeteilFavoritesViewModel
+    func makeViewModel (actions: DeteilFavoriteActions, model: ArticleFavorite) -> DeteilFavoritesViewModel
 }
 
 final class DeteiFavoritesFactory: IDeteiFavoritesFactory {
    
     //MARK: - IDeteiFavoritesFactory
-    func makeViewModel(model: ArticleFavorite) -> DeteilFavoritesViewModel {
+    func makeViewModel(actions: DeteilFavoriteActions, model: ArticleFavorite) -> DeteilFavoritesViewModel {
         .init(
             image: getImage(urlData: model.urlFavorite),
             title: model.titleFavorite,
             section: model.sectionFavorite,
             abstract: model.abstractFavorite,
             byline: model.bylineFavorite,
-            publishedDate: model.published_dateFavorite)
+            publishedDate: model.published_dateFavorite,
+            shareUrl: makeShareUrlButton(actions: actions))
     }
     
     //MARK: - Private
+    private func makeShareUrlButton(actions: DeteilFavoriteActions) -> ButtonNavigationBar {
+        .init(
+            title: "Share",
+            action: { [weak actions] in
+                actions?.didTapShareUrl()
+            }
+        )
+    }
+    
     private func getImage(urlData: Data?) -> UIImage? {
         if let image = loadImage(urlData: urlData) {
             return image
@@ -38,6 +48,5 @@ final class DeteiFavoritesFactory: IDeteiFavoritesFactory {
         guard let data = urlData else { return nil }
         guard let image = UIImage(data: data) else { return nil }
         return image
-        
     }
 }

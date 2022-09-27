@@ -14,4 +14,6 @@ struct DeteilFavoritesViewModel {
     let abstract: String?
     let byline: String?
     let publishedDate: String?
+    
+    let shareUrl: ButtonNavigationBar
 }
