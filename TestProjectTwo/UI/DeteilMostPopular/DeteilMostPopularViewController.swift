@@ -33,7 +33,6 @@ final class DeteilMostPopularViewController: UIViewController,
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -42,7 +41,6 @@ final class DeteilMostPopularViewController: UIViewController,
     private let sectionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -51,7 +49,6 @@ final class DeteilMostPopularViewController: UIViewController,
     private let abstractLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -60,7 +57,6 @@ final class DeteilMostPopularViewController: UIViewController,
     private let bylineLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -69,7 +65,6 @@ final class DeteilMostPopularViewController: UIViewController,
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -123,7 +118,7 @@ final class DeteilMostPopularViewController: UIViewController,
         setupAddFavoriteButton()
         setupShareUrl()
         
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
     }
     private func setupScrollView() {
         view.addSubview(scrollView)
@@ -195,7 +190,7 @@ final class DeteilMostPopularViewController: UIViewController,
         addFavoriteButton.snp.makeConstraints {
             $0.centerY.equalTo(dateLabel.snp.centerY)
             $0.leading.equalTo(dateLabel.snp.trailing).offset(25)
-            $0.width.equalTo(150)
+            $0.width.equalTo(170)
             $0.height.equalTo(27)
         }
     }

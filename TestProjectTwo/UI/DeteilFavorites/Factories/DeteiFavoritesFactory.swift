@@ -28,7 +28,7 @@ final class DeteiFavoritesFactory: IDeteiFavoritesFactory {
     //MARK: - Private
     private func makeShareUrlButton(actions: DeteilFavoriteActions) -> ButtonNavigationBar {
         .init(
-            title: "Share",
+            title: "share",
             action: { [weak actions] in
                 actions?.didTapShareUrl()
             }

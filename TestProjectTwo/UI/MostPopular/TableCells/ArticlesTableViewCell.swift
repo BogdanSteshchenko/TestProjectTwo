@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 final class ArticlesTableViewCell: UITableViewCell {
     
@@ -71,17 +72,8 @@ final class ArticlesTableViewCell: UITableViewCell {
             self.articlesLogo.image = UIImage(named: "default")
             return }
         guard let urlString = URL(string: urlString) else { return }
-        URLSession.shared.dataTask(with: urlString) { data, _, error in
-            if let error = error {
-                print("Error = \(error)")
-            } else {
-                guard let data = data else { return }
-                let image = UIImage(data: data)
-                DispatchQueue.main.sync {
-                    self.articlesLogo.image = image
-                }
-            }
-        }.resume()
+        
+        articlesLogo.kf.setImage(with: urlString)
     }
     
     //MARK: - Constrains

@@ -17,11 +17,11 @@ final class TabBarViewModelFactory: ITabBarViewModelFactory {
     func makeViewModels() -> [TabBarViewModel] {
         [
             .init(type: .articles, tabBarItem: .init(
-                title: "Articles",
+                title: NSLocalizedString("articles", comment: ""),
                 image: UIImage(systemName: "book.fill"),
                 tag: 0)),
             .init(type: .favorites, tabBarItem: .init(
-                title: "Favorites",
+                title: NSLocalizedString("favorites", comment: ""),
                 image: UIImage(systemName: "star.fill"),
                 tag: 1))
         ]

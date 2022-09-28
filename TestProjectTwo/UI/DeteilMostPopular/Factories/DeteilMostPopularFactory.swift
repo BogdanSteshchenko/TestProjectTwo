@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 protocol IDeteilMostPopularFactory {
     func makeViewModel (actions: DeteilMostPopularActions, model: Article) -> DeteilMostPopularViewModel
@@ -31,7 +30,7 @@ final class DeteilMostPopularFactory: IDeteilMostPopularFactory {
     //MARK: - Private
     private func makeAddFavoriteButtonModel(actions: DeteilMostPopularActions) -> ButtonViewModel {
         .init(
-            title: "Add favorite",
+            lokalizationId: "addFavorite",
             action: { [weak actions] in
                 actions?.didTapAddfavorite()
             }
@@ -40,7 +39,7 @@ final class DeteilMostPopularFactory: IDeteilMostPopularFactory {
     
     private func makeShareUrlButton(actions: DeteilMostPopularActions) -> ButtonNavigationBar {
         .init(
-            title: "Share",
+            title: "share",
             action: { [weak actions] in
                 actions?.didTapShareUrl()
             }
@@ -57,7 +56,6 @@ final class DeteilMostPopularFactory: IDeteilMostPopularFactory {
     }
     
     private func loadImage(urlString: String?) -> UIImage? {
-        
         do {
             guard let urlString = urlString else { return nil }
             guard let url = URL(string: urlString) else { return nil }

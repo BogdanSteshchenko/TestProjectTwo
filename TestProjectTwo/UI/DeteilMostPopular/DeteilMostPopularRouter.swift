@@ -27,7 +27,7 @@ final class DeteilMostPopularRouter: IDeteilMostPopularRouter {
             
             activityViewConroller.popoverPresentationController?.sourceView = transitionHandler?.navigationController?.navigationBar
 
-            let frame = CGRect(x: transitionHandler!.navigationController!.navigationBar.frame.maxX - 50, y: 30, width: 0, height: 0)
+            let frame = CGRect(x: transitionHandler!.navigationController!.navigationBar.frame.maxX - 50, y: 40, width: 0, height: 0)
             activityViewConroller.popoverPresentationController?.sourceRect = frame
             transitionHandler?.present(activityViewConroller, animated: true)
             

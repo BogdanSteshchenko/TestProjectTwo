@@ -54,6 +54,8 @@ final class StartViewController: UIViewController, IStartViewController {
         setupMostSharedButton()
         setupMostEmailedButton()
         setupMostViewedButton()
+        
+        view.backgroundColor = .systemBackground
     }
     
     private func setupMostEmailedButton() {

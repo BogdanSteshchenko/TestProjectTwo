@@ -8,14 +8,14 @@
 import UIKit
 
 struct ButtonViewModel {
-    let title: String?
+    let lokalizationId: String
     let action: () -> Void
 
     init(
-        title: String? = nil,
+        lokalizationId: String,
         action: @escaping () -> Void
     ) {
-        self.title = title
+        self.lokalizationId = lokalizationId
         self.action = action
     }
 }
@@ -24,23 +24,24 @@ extension UIButton {
     
     func setup(with viewModel: ButtonViewModel) {
         apply()
-        setTitle(viewModel.title, for: .normal)
+        setTitle(NSLocalizedString(viewModel.lokalizationId, comment: ""), for: .normal)
         primaryActionClosure = viewModel.action
     }
     
     private func apply() {
-        titleLabel?.font = UIFont(name: "Apple Symbols", size: 25)
+        titleLabel?.font = .systemFont(ofSize: 15)
+        titleLabel?.adjustsFontSizeToFitWidth = true
         backgroundColor = .lightGray
         setTitleColor(.black, for: .normal)
     }
 }
 
 struct ButtonNavigationBar {
-    let title: String?
+    let title: String
     let action: () -> Void
     
     init(
-        title: String?,
+        title: String,
         action: @escaping () -> Void
     ) {
         self.title = title
@@ -51,7 +52,7 @@ struct ButtonNavigationBar {
 extension UIBarButtonItem {
     
     func setup(with viewModel: ButtonNavigationBar) {
-        title = viewModel.title
+        title = NSLocalizedString(viewModel.title, comment: "")
         primaryActionClosure = viewModel.action
     }
 }

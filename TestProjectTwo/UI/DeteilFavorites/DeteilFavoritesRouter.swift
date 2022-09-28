@@ -21,9 +21,9 @@ final class DeteilFavoritesRoute: IDeteilFavoritesRouter {
         if UIDevice.current.userInterfaceIdiom == .pad {
             let activityViewConroller = UIActivityViewController(activityItems: [url], applicationActivities: nil)
             
-            activityViewConroller.popoverPresentationController?.sourceView = transitionHandler?.view
+            activityViewConroller.popoverPresentationController?.sourceView = transitionHandler?.navigationController?.navigationBar
 
-            guard let frame = transitionHandler?.navigationController?.accessibilityFrame else { return }
+            let frame = CGRect(x: transitionHandler!.navigationController!.navigationBar.frame.maxX - 50, y: 40, width: 0, height: 0)
             activityViewConroller.popoverPresentationController?.sourceRect = frame
             transitionHandler?.present(activityViewConroller, animated: true)
             

@@ -71,8 +71,6 @@ final class MostPopularViewController: UIViewController, IMostPopularViewControl
         setupDelegate()
         setNavigationBar()
         setConstrains()
-        
-        view.backgroundColor = .white
     }
     
     private func setupViews() {

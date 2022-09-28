@@ -64,8 +64,6 @@ final class FavoritesViewController: UIViewController, IFavoritesViewController 
         setupDelegate()
         setNavigationBar()
         setConstrains()
-        
-        view.backgroundColor = .white
     }
     
     private func setupViews() {
@@ -78,7 +76,7 @@ final class FavoritesViewController: UIViewController, IFavoritesViewController 
     }
     
     private func setNavigationBar() {
-        title = "Favorite"
+        title = NSLocalizedString("favorites", comment: "")
     }
     
     

@@ -42,11 +42,11 @@ final class MostPopularPresenter: IMostPopularPresenter {
     private func loadData(url: String) {
         var urlString: BaseURLType!
         switch url {
-        case "Most emailed":
+        case NSLocalizedString("mostEmailed", comment: ""):
             urlString = .mostEmailed
-        case "Most shared":
+        case NSLocalizedString("mostShared", comment: ""):
             urlString = .mostShared
-        case "Most viewed":
+        case NSLocalizedString("mostViewed", comment: ""):
             urlString = .mostViewed
         default:
             return

@@ -26,7 +26,7 @@ final class StartViewModelFactory: IStartViewModelFactory {
     //MARK: - Private
     private func makeMostEmailedButtonModel(actions: StartActions) -> ButtonViewModel {
         .init(
-            title: "Most emailed",
+            lokalizationId: "mostEmailed",
             action: { [weak actions] in
                 actions?.didTapMostEmailed()
             }
@@ -35,7 +35,7 @@ final class StartViewModelFactory: IStartViewModelFactory {
     
     private func makeMostSharedButtonModel(actions: StartActions) -> ButtonViewModel {
         .init(
-            title: "Most shared",
+            lokalizationId: "mostShared",
             action: { [weak actions] in
                 actions?.didTapMostShared()
             }
@@ -44,7 +44,7 @@ final class StartViewModelFactory: IStartViewModelFactory {
     
     private func makeMostViewedButtonModel(actions: StartActions) -> ButtonViewModel {
         .init(
-            title: "Most viewed",
+            lokalizationId: "mostViewed",
             action: { [weak actions] in
                 actions?.didTapMostViewed()
             }

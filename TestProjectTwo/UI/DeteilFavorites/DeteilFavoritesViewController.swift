@@ -31,7 +31,6 @@ final class DeteilFavoritesViewController: UIViewController, IDeteilFavoritesVie
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -40,7 +39,6 @@ final class DeteilFavoritesViewController: UIViewController, IDeteilFavoritesVie
     private let sectionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -49,7 +47,6 @@ final class DeteilFavoritesViewController: UIViewController, IDeteilFavoritesVie
     private let abstractLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -58,7 +55,6 @@ final class DeteilFavoritesViewController: UIViewController, IDeteilFavoritesVie
     private let bylineLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -67,7 +63,6 @@ final class DeteilFavoritesViewController: UIViewController, IDeteilFavoritesVie
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -118,7 +113,7 @@ final class DeteilFavoritesViewController: UIViewController, IDeteilFavoritesVie
         setupDateLabel()
         setupShareUrl()
         
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
     }
     private func setupScrollView() {
         view.addSubview(scrollView)
