@@ -45,6 +45,7 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate, IT
     private func setup() {
         tabBar.clipsToBounds = true
         tabBar.backgroundColor = .systemBackground
+        tabBar.tintColor = .darkGray
         tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     

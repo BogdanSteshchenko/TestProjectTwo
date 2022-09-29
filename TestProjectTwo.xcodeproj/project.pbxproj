@@ -55,6 +55,7 @@
 		8BCB6B9A28D4570E00127270 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BCB6B9928D4570E00127270 /* Assets.xcassets */; };
 		8BCB6B9D28D4570E00127270 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BCB6B9B28D4570E00127270 /* LaunchScreen.storyboard */; };
 		8BD501D728E1E9D300CEF411 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD501D628E1E9D300CEF411 /* Notifications.swift */; };
+		8BF8E79128E5920C00205A80 /* UIImageView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF8E79028E5920C00205A80 /* UIImageView+extension.swift */; };
 		8BFF255828DDB22400AD5CE3 /* DeteiFavoritesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF255728DDB22400AD5CE3 /* DeteiFavoritesFactory.swift */; };
 		8BFF255B28DDB25600AD5CE3 /* DeteilFavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF255A28DDB25600AD5CE3 /* DeteilFavoritesViewModel.swift */; };
 		8BFF255D28DDB27E00AD5CE3 /* DeteilFavoritesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF255C28DDB27E00AD5CE3 /* DeteilFavoritesAssembly.swift */; };
@@ -119,6 +120,7 @@
 		8BCB6B9C28D4570E00127270 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BCB6B9E28D4570E00127270 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BD501D628E1E9D300CEF411 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		8BF8E79028E5920C00205A80 /* UIImageView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+extension.swift"; sourceTree = "<group>"; };
 		8BFF255728DDB22400AD5CE3 /* DeteiFavoritesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteiFavoritesFactory.swift; sourceTree = "<group>"; };
 		8BFF255A28DDB25600AD5CE3 /* DeteilFavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilFavoritesViewModel.swift; sourceTree = "<group>"; };
 		8BFF255C28DDB27E00AD5CE3 /* DeteilFavoritesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilFavoritesAssembly.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 			children = (
 				8B5C2A0B28D8687300F01BEE /* UIButton+Action.swift */,
 				8B70866428D46BD000FDA74F /* UIButton+Setup.swift */,
+				8BF8E79028E5920C00205A80 /* UIImageView+extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -644,6 +647,7 @@
 				8B7EF37B28D8ABB2007D558C /* FavoritesViewModel.swift in Sources */,
 				8B7EF37F28D8ABE8007D558C /* FavoritesPresenter.swift in Sources */,
 				8B70865728D4671400FDA74F /* StartViewModel.swift in Sources */,
+				8BF8E79128E5920C00205A80 /* UIImageView+extension.swift in Sources */,
 				8B70865128D4668F00FDA74F /* StartViewModelFactory.swift in Sources */,
 				8B7EF38928D8B033007D558C /* MostPopularViewModel.swift in Sources */,
 				8B70865B28D4674500FDA74F /* StartAssembly.swift in Sources */,

@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import Kingfisher
 
 final class ArticlesTableViewCell: UITableViewCell {
     
@@ -68,12 +67,12 @@ final class ArticlesTableViewCell: UITableViewCell {
     }
     
     private func getImage(urlString: String?) {
-        guard let  urlString = urlString else {
-            self.articlesLogo.image = UIImage(named: "default")
-            return }
-        guard let urlString = URL(string: urlString) else { return }
-        
-        articlesLogo.kf.setImage(with: urlString)
+        if let urlString = urlString,
+           let url = URL(string: urlString) {
+            articlesLogo.setImage(with: url, placeholder: nil)
+        } else {
+            articlesLogo.setImage(with: nil, placeholder: UIImage(named: "default"))
+        }
     }
     
     //MARK: - Constrains

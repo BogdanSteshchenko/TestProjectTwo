@@ -101,9 +101,15 @@ final class DeteilMostPopularViewController: UIViewController,
         abstractLabel.text = model?.abstract
         bylineLabel.text = model?.byline
         dateLabel.text = model?.publishedDate
-        imageArticle.image = model?.image
         addFavoriteButton.setup(with: viewModel.addFavorite)
         shareUrlButton.setup(with: viewModel.shareUrl)
+        
+        if let urlString = model?.image,
+           let url = URL(string: urlString) {
+            imageArticle.setImage(with: url, placeholder: nil)
+        } else {
+            imageArticle.setImage(with: nil, placeholder: UIImage(named: "default"))
+        }
     }
     
     //MARK: - Private
