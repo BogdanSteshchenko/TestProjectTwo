@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SnapKit
 
 protocol IDeteilMostPopularViewController {
     func setup(with viewModel: DeteilMostPopularViewModel)

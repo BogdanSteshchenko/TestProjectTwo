@@ -7,4 +7,5 @@ pod 'Alamofire'
 pod 'SnapKit'
 pod 'SwiftLint'
 pod 'Kingfisher'
+pod 'Firebase'
 end
