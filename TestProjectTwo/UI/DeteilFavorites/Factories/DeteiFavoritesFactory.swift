@@ -16,12 +16,12 @@ final class DeteiFavoritesFactory: IDeteiFavoritesFactory {
     //MARK: - IDeteiFavoritesFactory
     func makeViewModel(actions: DeteilFavoriteActions, model: ArticleFavorite) -> DeteilFavoritesViewModel {
         .init(
-            image: getImage(urlData: model.urlFavorite),
-            title: model.titleFavorite,
-            section: model.sectionFavorite,
-            abstract: model.abstractFavorite,
-            byline: model.bylineFavorite,
-            publishedDate: model.published_dateFavorite,
+            image: model.urlImage,
+            title: model.title,
+            section: model.section,
+            abstract: model.abstract,
+            byline: model.byline,
+            publishedDate: model.publishedDate,
             shareUrl: makeShareUrlButton(actions: actions))
     }
     

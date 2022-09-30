@@ -29,9 +29,9 @@ final class FavoritesViewModelFactory: IFavoritesViewModelFactory {
         
         article.forEach { article in
             let productArticle: FavoritesViewModelCell = .init(
-                imageArticles: article.urlFavorite,
-                nameArticles: article.titleFavorite ?? "",
-                dateArticlesLabel: article.published_dateFavorite ?? "")
+                imageArticles: article.urlImage,
+                nameArticles: article.title ?? "",
+                dateArticlesLabel: article.publishedDate ?? "")
             
             favoritesViewModelCell.append(productArticle)
         }

@@ -5,10 +5,10 @@
 //  Created by Developer on 23.09.2022.
 //
 
-import UIKit
+import Foundation
 
 struct DeteilFavoritesViewModel {
-    let image: UIImage?
+    let image: String?
     let title: String?
     let section: String?
     let abstract: String?

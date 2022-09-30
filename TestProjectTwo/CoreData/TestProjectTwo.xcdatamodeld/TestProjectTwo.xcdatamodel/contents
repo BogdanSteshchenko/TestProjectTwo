@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21279" systemVersion="21G115" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="ArticleFavorite" representedClassName="ArticleFavorite" syncable="YES" codeGenerationType="class">
-        <attribute name="abstractFavorite" optional="YES" attributeType="String"/>
-        <attribute name="bylineFavorite" optional="YES" attributeType="String"/>
-        <attribute name="id" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="mediaFavorite" optional="YES" attributeType="String"/>
-        <attribute name="published_dateFavorite" optional="YES" attributeType="String"/>
-        <attribute name="sectionFavorite" optional="YES" attributeType="String"/>
-        <attribute name="titleFavorite" optional="YES" attributeType="String"/>
+        <attribute name="abstract" optional="YES" attributeType="String"/>
+        <attribute name="byline" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="publishedDate" optional="YES" attributeType="String"/>
+        <attribute name="section" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String"/>
-        <attribute name="urlFavorite" optional="YES" attributeType="Binary"/>
+        <attribute name="urlImage" optional="YES" attributeType="String"/>
     </entity>
 </model>

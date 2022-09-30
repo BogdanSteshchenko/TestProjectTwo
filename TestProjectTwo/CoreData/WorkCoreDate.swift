@@ -27,17 +27,14 @@ class WorkCoreDate {
               let context = context else { return }
         if !allArticles.contains(where: { $0.id == article.id }) {
             let newArticle = ArticleFavorite(context: context)
-            newArticle.titleFavorite = article.title
-            newArticle.published_dateFavorite = article.publishedDate
-            newArticle.sectionFavorite = article.section
-            newArticle.bylineFavorite = article.byline
-            newArticle.abstractFavorite = article.abstract
+            newArticle.title = article.title
+            newArticle.publishedDate = article.publishedDate
+            newArticle.section = article.section
+            newArticle.byline = article.byline
+            newArticle.abstract = article.abstract
             newArticle.id = article.id
             newArticle.url = article.url
-            
-            if let dataImage = fromJpegToData(urlString: article.media?.first?.mediaMetadata[2].url) {
-                newArticle.urlFavorite = dataImage
-            }
+            newArticle.urlImage = article.media?.first?.mediaMetadata[2].url
             do {
                 try context.save()
             } catch {

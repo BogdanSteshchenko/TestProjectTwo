@@ -13,7 +13,7 @@ struct ArticlesModel: Decodable {
 
 struct Article: Decodable {
     let url: String
-    let id: Double
+    let id: Int64
     let publishedDate: String
     let section: String
     let byline: String

@@ -98,8 +98,15 @@ final class DeteilFavoritesViewController: UIViewController, IDeteilFavoritesVie
         abstractLabel.text = model?.abstract
         bylineLabel.text = model?.byline
         dateLabel.text = model?.publishedDate
-        imageArticle.image = model?.image
         shareUrlButton.setup(with: viewModel.shareUrl)
+        
+        if let urlString = model?.image,
+           let url = URL(string: urlString) {
+            imageArticle.setImage(with: url, placeholder: nil)
+        } else {
+            imageArticle.setImage(with: nil, placeholder: UIImage(named: "default"))
+        }
+
     }
     
     //MARK: - Private

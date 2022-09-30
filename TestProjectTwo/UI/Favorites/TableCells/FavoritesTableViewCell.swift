@@ -62,16 +62,12 @@ final class FavoritesTableViewCell: UITableViewCell {
     func configureArticlesCell(with viewModelCell: FavoritesViewModelCell) {
         nameArticlesLabel.text = viewModelCell.nameArticles
         dateArticlesLabel.text = viewModelCell.dateArticlesLabel
-        getImage(imageData: viewModelCell.imageArticles)
-    }
-    
-    
-    private func getImage(imageData: Data?) {
-        if let imageData = imageData {
-            let image = UIImage(data: imageData)
-            articlesLogo.image = image
+        
+        if let urlString = viewModelCell.imageArticles,
+           let url = URL(string: urlString) {
+            articlesLogo.setImage(with: url, placeholder: nil)
         } else {
-            articlesLogo.image = UIImage(named: "default")
+            articlesLogo.setImage(with: nil, placeholder: UIImage(named: "default"))
         }
     }
 
