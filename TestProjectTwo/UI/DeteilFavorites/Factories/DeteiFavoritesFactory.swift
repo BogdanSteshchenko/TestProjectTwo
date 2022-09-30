@@ -21,11 +21,19 @@ final class DeteiFavoritesFactory: IDeteiFavoritesFactory {
             section: model.section,
             abstract: model.abstract,
             byline: model.byline,
-            publishedDate: model.publishedDate,
+            publishedDate: getDateString(date: model.publishedDate),
             shareUrl: makeShareUrlButton(actions: actions))
     }
     
     //MARK: - Private
+    private func getDateString(date: Date?) -> String? {
+        guard let date = date else { return nil }
+        let dataFormatter = DateFormatter()
+        dataFormatter.dateFormat = "dd.MM.yyyy"
+        let dateString = dataFormatter.string(from: date)
+        return dateString
+    }
+    
     private func makeShareUrlButton(actions: DeteilFavoriteActions) -> ButtonNavigationBar {
         .init(
             title: "share",

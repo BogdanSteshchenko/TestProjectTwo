@@ -14,7 +14,7 @@ struct ArticlesModel: Decodable {
 struct Article: Decodable {
     let url: String
     let id: Int64
-    let publishedDate: String
+    let publishedDate: Date
     let section: String
     let byline: String
     let title: String

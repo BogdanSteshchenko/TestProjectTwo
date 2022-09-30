@@ -183,7 +183,7 @@ final class DeteilFavoritesViewController: UIViewController, IDeteilFavoritesVie
         dateLabel.snp.makeConstraints {
             $0.centerX.equalTo(scrollView.snp.centerX)
             $0.top.equalTo(bylineLabel.snp.bottom).offset(25)
-            $0.leading.equalTo(scrollView.snp.leading).offset(25)
+            $0.leading.equalTo(scrollView.snp.leading).offset(20)
         }
     }
     

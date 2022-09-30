@@ -31,10 +31,18 @@ final class FavoritesViewModelFactory: IFavoritesViewModelFactory {
             let productArticle: FavoritesViewModelCell = .init(
                 imageArticles: article.urlImage,
                 nameArticles: article.title ?? "",
-                dateArticlesLabel: article.publishedDate ?? "")
+                dateArticlesLabel: getDateString(date: article.publishedDate) ?? "")
             
             favoritesViewModelCell.append(productArticle)
         }
         return favoritesViewModelCell
+    }
+    
+    private func getDateString(date: Date?) -> String? {
+        guard let date = date else { return nil }
+        let dataFormatter = DateFormatter()
+        dataFormatter.dateFormat = "dd.MM.yyyy"
+        let dateString = dataFormatter.string(from: date)
+        return dateString
     }
 }

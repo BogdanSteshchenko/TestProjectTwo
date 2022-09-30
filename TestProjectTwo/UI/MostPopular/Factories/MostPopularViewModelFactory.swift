@@ -27,10 +27,17 @@ final class MostPopularViewModelFactory: IMostPopularViewModelFactory {
             let productArticle: MostPopularViewModelCell = .init(
                 imageArticles: article.media?.first?.mediaMetadata[0].url,
                 nameArticles: article.title,
-                dateArticlesLabel: article.publishedDate)
+                dateArticlesLabel: getDateString(date: article.publishedDate))
             
             mostPopularViewModelCell.append(productArticle)
         }
         return mostPopularViewModelCell
+    }
+    
+    private func getDateString(date: Date) -> String {
+        let dataFormatter = DateFormatter()
+        dataFormatter.dateFormat = "dd.MM.yyyy"
+        let dateString = dataFormatter.string(from: date)
+        return dateString
     }
 }

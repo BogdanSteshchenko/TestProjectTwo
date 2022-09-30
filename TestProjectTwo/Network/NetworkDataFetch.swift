@@ -36,7 +36,13 @@ final class NetworkDataFetch {
             switch result {
             case .success(let data):
                 do {
-                    let articles = try JSONDecoder().decode(ArticlesModel.self, from: data)
+                    let decoder = JSONDecoder()
+                    let dateFormatter = DateFormatter()
+                    
+                    dateFormatter.dateFormat = "yyyy-MM-dd"
+                    decoder.dateDecodingStrategy = .formatted(dateFormatter)
+                    
+                    let articles = try decoder.decode(ArticlesModel.self, from: data)
                     responce(articles, nil )
                 } catch let jsonError {
                     print("ERROR JSON = \(jsonError)")

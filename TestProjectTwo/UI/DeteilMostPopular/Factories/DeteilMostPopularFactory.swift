@@ -21,13 +21,19 @@ final class DeteilMostPopularFactory: IDeteilMostPopularFactory {
             section: model.section,
             abstract: model.abstract,
             byline: model.byline,
-            publishedDate: model.publishedDate,
+            publishedDate: getDateString(date: model.publishedDate),
             addFavorite: makeAddFavoriteButtonModel(actions: actions),
             shareUrl: makeShareUrlButton(actions: actions))
         
     }
     
     //MARK: - Private
+    private func getDateString(date: Date) -> String {
+        let dataFormatter = DateFormatter()
+        dataFormatter.dateFormat = "dd.MM.yyyy"
+        let dateString = dataFormatter.string(from: date)
+        return dateString
+    }
     private func makeAddFavoriteButtonModel(actions: DeteilMostPopularActions) -> ButtonViewModel {
         .init(
             lokalizationId: "addFavorite",
