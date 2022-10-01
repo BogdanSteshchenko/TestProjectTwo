@@ -21,15 +21,18 @@ final class NetworkDataFetch {
     private init() {
     }
     
-    func fetchArticles(url: BaseTypeSection, responce: @escaping (ArticlesModel?, Error?) -> Void) {
+    func fetchArticles(url: BaseTypeSection, domen: String, version: String, key: String, responce: @escaping (ArticlesModel?, Error?) -> Void) {
         var urlString = ""
         switch url {
         case .mostEmailed:
-            urlString = "https://api.nytimes.com/svc/mostpopular/v2/emailed/30.json?api-key=mrFPbwPT04KhI7ienE7ZRUOlMQSJYI5P"
+//            urlString = "https://api.nytimes.com/svc/mostpopular/v2/emailed/30.json?api-key=mrFPbwPT04KhI7ienE7ZRUOlMQSJYI5P"
+            urlString = getUrl(domen: domen, version: version, type: "emailed/30.json?api", key: key)
         case .mostShared:
-            urlString = "https://api.nytimes.com/svc/mostpopular/v2/shared/30/facebook.json?api-key=mrFPbwPT04KhI7ienE7ZRUOlMQSJYI5P"
+//            urlString = "https://api.nytimes.com/svc/mostpopular/v2/shared/30/facebook.json?api-key=mrFPbwPT04KhI7ienE7ZRUOlMQSJYI5P"
+            urlString = getUrl(domen: domen, version: version, type: "shared/30/facebook.json?api", key: key)
         case .mostViewed:
-            urlString = "https://api.nytimes.com/svc/mostpopular/v2/viewed/30.json?api-key=mrFPbwPT04KhI7ienE7ZRUOlMQSJYI5P"
+//            urlString = "https://api.nytimes.com/svc/mostpopular/v2/viewed/30.json?api-key=mrFPbwPT04KhI7ienE7ZRUOlMQSJYI5P"
+            urlString = getUrl(domen: domen, version: version, type: "viewed/30.json?api", key: key)
         }
         
         NetworkRequest.shared.requestData(urlString: urlString) { result in
@@ -51,5 +54,10 @@ final class NetworkDataFetch {
                 responce(nil, error)
             }
         }
+    }
+    
+    //Private
+    private func getUrl(domen: String, version: String, type: String, key: String) -> String {
+        return "\(domen)/\(version)/\(type)-key=\(key)"
     }
 }

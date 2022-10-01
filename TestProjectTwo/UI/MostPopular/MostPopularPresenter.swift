@@ -49,7 +49,7 @@ final class MostPopularPresenter: IMostPopularPresenter {
         case .mostViewed:
             urlString = .mostViewed
         }
-        NetworkDataFetch.shared.fetchArticles(url: urlString) { [weak self] responce, error in
+        NetworkDataFetch.shared.fetchArticles(url: urlString, domen: "https://api.nytimes.com/svc/mostpopular", version: "v2", key: "mrFPbwPT04KhI7ienE7ZRUOlMQSJYI5P") { [weak self] responce, error in
             if let error = error {
                 print("Error 1 = \(error)")
             } else {

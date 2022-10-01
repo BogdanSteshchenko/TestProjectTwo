@@ -31,8 +31,7 @@ class Notifications {
         content.body = "Putin XUYLO"
         content.sound = UNNotificationSound.default
         
-        let dateComponents = DateComponents(hour: 9, minute: 53)
-//        let dateComponents = DateComponents(hour: 12)
+        let dateComponents = DateComponents(hour: 12)
 
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents,
           repeats: true)
