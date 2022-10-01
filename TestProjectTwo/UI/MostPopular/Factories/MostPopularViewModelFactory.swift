@@ -8,16 +8,17 @@
 import Foundation
 
 protocol IMostPopularViewModelFactory {
-    func makeViewModel(model: ArticlesModel) -> MostPopularViewModel
+    func makeViewModel(model: ArticlesModel, type: BaseTypeSection) -> MostPopularViewModel
 }
 
 final class MostPopularViewModelFactory: IMostPopularViewModelFactory {
     
     //MARK: - IMostPopularViewModelFactory
-    func makeViewModel(model: ArticlesModel) -> MostPopularViewModel {
+    func makeViewModel(model: ArticlesModel, type: BaseTypeSection) -> MostPopularViewModel {
         let shelves: [MostPopularViewModelCell] = self.makeArticles(article: model.results)
+        let title = getTitle(type: type)
         
-        return MostPopularViewModel.init(shelves: shelves)
+        return MostPopularViewModel.init(title: title, shelves: shelves)
     }
     
     // MARK: - Private
@@ -39,5 +40,16 @@ final class MostPopularViewModelFactory: IMostPopularViewModelFactory {
         dataFormatter.dateFormat = "dd.MM.yyyy"
         let dateString = dataFormatter.string(from: date)
         return dateString
+    }
+    
+    private func getTitle(type: BaseTypeSection) -> String {
+        switch type {
+        case .mostEmailed:
+            return NSLocalizedString("mostEmailed", comment: "")
+        case.mostShared:
+            return NSLocalizedString("mostShared", comment: "")
+        case .mostViewed:
+            return NSLocalizedString("mostViewed", comment: "")
+        }
     }
 }

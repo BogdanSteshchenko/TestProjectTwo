@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum BaseURLType {
+enum BaseTypeSection {
     case mostEmailed
     case mostShared
     case mostViewed
@@ -21,7 +21,7 @@ final class NetworkDataFetch {
     private init() {
     }
     
-    func fetchArticles(url: BaseURLType, responce: @escaping (ArticlesModel?, Error?) -> Void) {
+    func fetchArticles(url: BaseTypeSection, responce: @escaping (ArticlesModel?, Error?) -> Void) {
         var urlString = ""
         switch url {
         case .mostEmailed:

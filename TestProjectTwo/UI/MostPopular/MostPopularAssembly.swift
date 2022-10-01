@@ -8,17 +8,17 @@
 import UIKit
 
 protocol IMostPopularAssembly {
-    func assemble(title: String) -> UIViewController
+    func assemble(type: BaseTypeSection) -> UIViewController
 }
 
 final class MostPopularAssembly: IMostPopularAssembly {
-    func assemble(title: String) -> UIViewController {
+    func assemble(type: BaseTypeSection) -> UIViewController {
         let deteilMostPopularAssembly: DeteilMostPopularAssembly = DeteilMostPopularAssembly()
         
         let viewModelFactory: MostPopularViewModelFactory = MostPopularViewModelFactory()
         let router: MostPopularRouter = MostPopularRouter(deteilMostPopularAssembly: deteilMostPopularAssembly)
         let presenter: MostPopularPresenter = MostPopularPresenter(mostPopularViewModelFactory: viewModelFactory, router: router)
-        let view: MostPopularViewController = MostPopularViewController(presenter: presenter, sectionTitle: title)
+        let view: MostPopularViewController = MostPopularViewController(presenter: presenter, sectionType: type)
         presenter.view = view
         router.transitionHandler = view
         

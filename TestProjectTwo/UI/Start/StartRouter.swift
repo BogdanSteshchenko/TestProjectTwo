@@ -29,17 +29,17 @@ final class StartRouter: IStartRouter {
     
     //MARK: - IStartRouter
     func showDetailMostEmailed() {
-        let view: UIViewController = mostPopularAssembly.assemble(title: NSLocalizedString("mostEmailed", comment: ""))
+        let view: UIViewController = mostPopularAssembly.assemble(type: .mostEmailed)
         transitionHandler?.navigationController?.pushViewController(view, animated: true)
     }
     
     func showDetailMostShared() {
-        let view: UIViewController = mostPopularAssembly.assemble(title: NSLocalizedString("mostShared", comment: ""))
+        let view: UIViewController = mostPopularAssembly.assemble(type: .mostShared)
         transitionHandler?.navigationController?.pushViewController(view, animated: true)
     }
     
     func showDetailMostViewed() {
-        let view: UIViewController = mostPopularAssembly.assemble(title: NSLocalizedString("mostViewed", comment: ""))
+        let view: UIViewController = mostPopularAssembly.assemble(type: .mostViewed)
         transitionHandler?.navigationController?.pushViewController(view, animated: true)
     }
 }

@@ -20,8 +20,8 @@ final class DeteilMostPopularViewController: UIViewController,
     private var model: DeteilMostPopularViewModel?
     
     // UI elements
-    private let scrollView: UIScrollView = UIScrollView()
-    private let imageArticle: UIImageView = {
+    private let scrollViewConroller: UIScrollView = UIScrollView()
+    private let rticleImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -105,9 +105,9 @@ final class DeteilMostPopularViewController: UIViewController,
         
         if let urlString = model?.image,
            let url = URL(string: urlString) {
-            imageArticle.setImage(with: url, placeholder: nil)
+            rticleImageView.setImage(with: url, placeholder: nil)
         } else {
-            imageArticle.setImage(with: nil, placeholder: UIImage(named: "default"))
+            rticleImageView.setImage(with: nil, placeholder: UIImage(named: "default"))
         }
     }
     
@@ -126,72 +126,72 @@ final class DeteilMostPopularViewController: UIViewController,
         view.backgroundColor = .systemBackground
     }
     private func setupScrollView() {
-        view.addSubview(scrollView)
-        scrollView.snp.makeConstraints {
+        view.addSubview(scrollViewConroller)
+        scrollViewConroller.snp.makeConstraints {
             $0.leading.equalTo(view.snp.leading)
             $0.trailing.equalTo(view.snp.trailing)
             $0.top.equalTo(view.snp.top)
             $0.bottom.equalTo(view.snp.bottom)
-            scrollView.contentSize.height = 1000
+            scrollViewConroller.contentSize.height = 1000
         }
     }
     private func setupImageArticle() {
-        scrollView.addSubview(imageArticle)
-        imageArticle.snp.makeConstraints {
-            $0.centerX.equalTo(scrollView.snp.centerX)
-            $0.top.equalTo(scrollView.snp.top).offset(50)
+        scrollViewConroller.addSubview(rticleImageView)
+        rticleImageView.snp.makeConstraints {
+            $0.centerX.equalTo(scrollViewConroller.snp.centerX)
+            $0.top.equalTo(scrollViewConroller.snp.top).offset(50)
             $0.height.equalTo(250)
             $0.width.equalTo(250)
         }
     }
     
     private func setupTitleLabel() {
-        scrollView.addSubview(titleLabel)
+        scrollViewConroller.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
-            $0.centerX.equalTo(scrollView.snp.centerX)
-            $0.top.equalTo(imageArticle.snp.bottom).offset(10)
-            $0.leading.equalTo(scrollView.snp.leading).offset(20)
+            $0.centerX.equalTo(scrollViewConroller.snp.centerX)
+            $0.top.equalTo(rticleImageView.snp.bottom).offset(10)
+            $0.leading.equalTo(scrollViewConroller.snp.leading).offset(20)
         }
     }
     
     private func setupSectionLabel() {
-        scrollView.addSubview(sectionLabel)
+        scrollViewConroller.addSubview(sectionLabel)
         sectionLabel.snp.makeConstraints {
-            $0.centerX.equalTo(scrollView.snp.centerX)
+            $0.centerX.equalTo(scrollViewConroller.snp.centerX)
             $0.top.equalTo(titleLabel.snp.bottom).offset(10)
-            $0.leading.equalTo(scrollView.snp.leading).offset(20)
+            $0.leading.equalTo(scrollViewConroller.snp.leading).offset(20)
         }
     }
     
     private func setupAbstractLabel() {
-        scrollView.addSubview(abstractLabel)
+        scrollViewConroller.addSubview(abstractLabel)
         abstractLabel.snp.makeConstraints {
-            $0.centerX.equalTo(scrollView.snp.centerX)
+            $0.centerX.equalTo(scrollViewConroller.snp.centerX)
             $0.top.equalTo(sectionLabel.snp.bottom).offset(10)
-            $0.leading.equalTo(scrollView.snp.leading).offset(20)
+            $0.leading.equalTo(scrollViewConroller.snp.leading).offset(20)
         }
     }
     
     private func setupBylineLabel() {
-        scrollView.addSubview(bylineLabel)
+        scrollViewConroller.addSubview(bylineLabel)
         bylineLabel.snp.makeConstraints {
-            $0.centerX.equalTo(scrollView.snp.centerX)
+            $0.centerX.equalTo(scrollViewConroller.snp.centerX)
             $0.top.equalTo(abstractLabel.snp.bottom).offset(25)
-            $0.leading.equalTo(scrollView.snp.leading).offset(20)
+            $0.leading.equalTo(scrollViewConroller.snp.leading).offset(20)
         }
     }
     
     private func setupDateLabel() {
-        scrollView.addSubview(dateLabel)
+        scrollViewConroller.addSubview(dateLabel)
         dateLabel.snp.makeConstraints {
             $0.top.equalTo(bylineLabel.snp.bottom).offset(25)
-            $0.leading.equalTo(scrollView.snp.leading).offset(20)
+            $0.leading.equalTo(scrollViewConroller.snp.leading).offset(20)
             $0.width.equalTo(100)
         }
     }
     
     private func setupAddFavoriteButton() {
-        scrollView.addSubview(addFavoriteButton)
+        scrollViewConroller.addSubview(addFavoriteButton)
         addFavoriteButton.snp.makeConstraints {
             $0.centerY.equalTo(dateLabel.snp.centerY)
             $0.leading.equalTo(dateLabel.snp.trailing).offset(25)

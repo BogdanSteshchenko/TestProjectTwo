@@ -17,7 +17,8 @@ final class MostPopularViewController: UIViewController, IMostPopularViewControl
     
     // Dependencies
     private let presenter: IMostPopularPresenter
-    private let sectionTitle: String
+    private let type: BaseTypeSection
+//    private let sectionTitle: String
     private var mostPopularViewModelForCell: [MostPopularViewModelCell]?
     
     // UI elements
@@ -35,9 +36,9 @@ final class MostPopularViewController: UIViewController, IMostPopularViewControl
     }()
     
     //MARK: - Initialization
-    init(presenter: IMostPopularPresenter, sectionTitle: String) {
+    init(presenter: IMostPopularPresenter, sectionType: BaseTypeSection) {
         self.presenter = presenter
-        self.sectionTitle = sectionTitle
+        self.type = sectionType
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -50,11 +51,12 @@ final class MostPopularViewController: UIViewController, IMostPopularViewControl
         super.viewDidLoad()
         setup()
         
-        presenter.viewDidLoad(url: sectionTitle)
+        presenter.viewDidLoad(type: type)
     }
     
     // MARK: - IMostPopularViewController
     func setup(with viewModel: MostPopularViewModel) {
+        title = viewModel.title
         mostPopularViewModelForCell = viewModel.shelves
         reloadData()
     }
@@ -69,7 +71,6 @@ final class MostPopularViewController: UIViewController, IMostPopularViewControl
     private func setup() {
         setupViews()
         setupDelegate()
-        setNavigationBar()
         setConstrains()
     }
     
@@ -83,10 +84,6 @@ final class MostPopularViewController: UIViewController, IMostPopularViewControl
     private func setupDelegate() {
         tableView.delegate = self
         tableView.dataSource = self
-    }
-    
-    private func setNavigationBar() {
-        title = sectionTitle
     }
 }
 

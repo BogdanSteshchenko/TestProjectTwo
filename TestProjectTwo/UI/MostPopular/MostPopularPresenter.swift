@@ -9,7 +9,7 @@ import Foundation
 
 protocol IMostPopularPresenter {
     var viewModel: MostPopularViewModel { get }
-    func viewDidLoad(url: String)
+    func viewDidLoad(type: BaseTypeSection)
     func didTapDeteilAcrticle(number: Int)
 }
 
@@ -34,22 +34,20 @@ final class MostPopularPresenter: IMostPopularPresenter {
     
     //MARK: - IMostPopularPresenter
     
-    func viewDidLoad(url: String) {
-        loadData(url: url)
+    func viewDidLoad(type: BaseTypeSection) {
+        loadData(type: type)
     }
     
     //MARK: - Private
-    private func loadData(url: String) {
-        var urlString: BaseURLType!
-        switch url {
-        case NSLocalizedString("mostEmailed", comment: ""):
+    private func loadData(type: BaseTypeSection) {
+        var urlString: BaseTypeSection!
+        switch type {
+        case .mostEmailed:
             urlString = .mostEmailed
-        case NSLocalizedString("mostShared", comment: ""):
+        case .mostShared:
             urlString = .mostShared
-        case NSLocalizedString("mostViewed", comment: ""):
+        case .mostViewed:
             urlString = .mostViewed
-        default:
-            return
         }
         NetworkDataFetch.shared.fetchArticles(url: urlString) { [weak self] responce, error in
             if let error = error {
@@ -58,7 +56,7 @@ final class MostPopularPresenter: IMostPopularPresenter {
                 guard let self = self,
                       let responce = responce else { return }
                 self.article = responce.results
-                self.view?.setup(with: self.mostPopularViewModelFactory.makeViewModel(model: responce))
+                self.view?.setup(with: self.mostPopularViewModelFactory.makeViewModel(model: responce, type: type))
             }
         }
     }

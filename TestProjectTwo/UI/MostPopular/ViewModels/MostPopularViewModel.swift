@@ -9,7 +9,8 @@ import UIKit
 
 
 struct MostPopularViewModel {
-    static let empty: MostPopularViewModel = .init(shelves: [])
+    static let empty: MostPopularViewModel = .init(title: "", shelves: [])
+    let title: String
     
     let shelves: [MostPopularViewModelCell]
 }
