@@ -13,7 +13,7 @@ protocol IFavoritesAssembly {
 
 final class FavoritesAssembly: IFavoritesAssembly {
     func assemble() -> UIViewController {
-        let deteilFavoritesAssembly: DeteilFavoritesAssembly = DeteilFavoritesAssembly()
+        let deteilFavoritesAssembly: DeteilArticlesAssembly = DeteilArticlesAssembly()
         let viewModelFactory: FavoritesViewModelFactory = FavoritesViewModelFactory()
         let router: FavoritesRouter = FavoritesRouter(deteilFavoritesAssembly: deteilFavoritesAssembly)
         let preseter: FavoritesPresenter = FavoritesPresenter(favoritesViewModelFactory: viewModelFactory, router: router)

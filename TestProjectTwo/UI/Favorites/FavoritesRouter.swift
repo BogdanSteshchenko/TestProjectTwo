@@ -16,17 +16,19 @@ final class FavoritesRouter: IFavoriteRouter {
     
     // Dependencies
     weak var transitionHandler: UIViewController?
-    private let deteilFavoritesAssembly: IDeteilFavoritesAssembly
+    private let deteilFavoritesAssembly: IDeteilArticlesAssembly
     
     //MARK: - Initialization
-    init(deteilFavoritesAssembly: IDeteilFavoritesAssembly) {
+    init(deteilFavoritesAssembly: IDeteilArticlesAssembly) {
         self.deteilFavoritesAssembly = deteilFavoritesAssembly
     }
     
     //MARK: - IFavoriteRouter
     func showDeteilFavorite(article: ArticleFavorite) {
-        let view: UIViewController = deteilFavoritesAssembly.assemble(acticle: article)
+        let view: UIViewController = deteilFavoritesAssembly.assemble(article: nil, articleFavorite: article)
         transitionHandler?.navigationController?.pushViewController(view, animated: true)
+//        let view: UIViewController = deteilFavoritesAssembly.assemble(acticle: article)
+//        transitionHandler?.navigationController?.pushViewController(view, animated: true)
     }
     func deleteArticle(article: ArticleFavorite) {
         WorkCoreDate.shared.deleteItem(article: article) { _, _ in

@@ -1,5 +1,5 @@
 //
-//  DeteilMostPopularViewController.swift
+//  DeteilArticlesViewController.swift
 //  TestProjectTwo
 //
 //  Created by Developer on 22.09.2022.
@@ -7,17 +7,18 @@
 
 import UIKit
 
-protocol IDeteilMostPopularViewController {
-    func setup(with viewModel: DeteilMostPopularViewModel)
+protocol IDeteilArticlesViewController {
+    func setup(with viewModel: DeteilArticlesViewModel)
 }
 
-final class DeteilMostPopularViewController: UIViewController,
-    IDeteilMostPopularViewController {
+final class DeteilArticlesViewController: UIViewController,
+    IDeteilArticlesViewController {
     
     // Dependencies
-    private let presenter: IDeteilMostPopularPresenter
-    private let article: Article
-    private var model: DeteilMostPopularViewModel?
+    private let presenter: IDeteilArticlesPresenter
+    private let article: Article?
+    private let articleFavorite: ArticleFavorite?
+    private var model: DeteilArticlesViewModel?
     
     // UI elements
     private let scrollViewConroller: UIScrollView = UIScrollView()
@@ -73,9 +74,10 @@ final class DeteilMostPopularViewController: UIViewController,
     private let shareUrlButton: UIBarButtonItem = UIBarButtonItem()
     
     // MARK: - Initialization
-    init(presenter: IDeteilMostPopularPresenter, article: Article) {
+    init(presenter: IDeteilArticlesPresenter, article: Article?, articleFavorite: ArticleFavorite?) {
         self.presenter = presenter
         self.article = article
+        self.articleFavorite = articleFavorite
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -88,12 +90,15 @@ final class DeteilMostPopularViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        
-        presenter.viewDidLoad(article: article)
+        if article != nil {
+            presenter.viewDidLoad(article: article, articleFavorite: nil)
+        } else {
+            presenter.viewDidLoad(article: nil, articleFavorite: articleFavorite)
+        }
     }
     
     //MARK: - IDeteilMostPopularViewController
-    func setup(with viewModel: DeteilMostPopularViewModel) {
+    func setup(with viewModel: DeteilArticlesViewModel) {
         model = viewModel
         titleLabel.text = model?.title
         sectionLabel.text = model?.section

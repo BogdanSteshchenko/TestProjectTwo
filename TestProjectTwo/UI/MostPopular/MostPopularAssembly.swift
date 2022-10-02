@@ -13,7 +13,7 @@ protocol IMostPopularAssembly {
 
 final class MostPopularAssembly: IMostPopularAssembly {
     func assemble(type: BaseTypeSection) -> UIViewController {
-        let deteilMostPopularAssembly: DeteilMostPopularAssembly = DeteilMostPopularAssembly()
+        let deteilMostPopularAssembly: DeteilArticlesAssembly = DeteilArticlesAssembly()
         
         let viewModelFactory: MostPopularViewModelFactory = MostPopularViewModelFactory()
         let router: MostPopularRouter = MostPopularRouter(deteilMostPopularAssembly: deteilMostPopularAssembly)

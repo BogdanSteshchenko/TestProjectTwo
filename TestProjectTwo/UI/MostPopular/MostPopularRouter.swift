@@ -15,16 +15,16 @@ final class MostPopularRouter: IMostPopularRouter {
     
     // Dependencies
     weak var transitionHandler: UIViewController?
-    private let deteilMostPopularAssembly: IDeteilMostPopularAssembly
+    private let deteilMostPopularAssembly: IDeteilArticlesAssembly
     
     //MARK: - Initialization
-    init(deteilMostPopularAssembly: IDeteilMostPopularAssembly) {
+    init(deteilMostPopularAssembly: IDeteilArticlesAssembly) {
         self.deteilMostPopularAssembly = deteilMostPopularAssembly
     }
     
     //MARK: - IMostPopularRouter
     func showDeteilFavorite(article: Article) {
-        let view: UIViewController = deteilMostPopularAssembly.assemble(article: article)
+        let view: UIViewController = deteilMostPopularAssembly.assemble(article: article, articleFavorite: nil)
         transitionHandler?.navigationController?.pushViewController(view, animated: true)
     }
 }

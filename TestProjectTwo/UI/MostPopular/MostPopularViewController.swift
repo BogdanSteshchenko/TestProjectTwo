@@ -18,7 +18,6 @@ final class MostPopularViewController: UIViewController, IMostPopularViewControl
     // Dependencies
     private let presenter: IMostPopularPresenter
     private let type: BaseTypeSection
-//    private let sectionTitle: String
     private var mostPopularViewModelForCell: [MostPopularViewModelCell]?
     
     // UI elements

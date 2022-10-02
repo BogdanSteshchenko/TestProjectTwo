@@ -1,5 +1,5 @@
 //
-//  DeteilMostPopularRouter.swift
+//  DeteilArticlesRouter.swift
 //  TestProjectTwo
 //
 //  Created by Developer on 22.09.2022.
@@ -7,15 +7,15 @@
 
 import UIKit
 
-protocol IDeteilMostPopularRouter {
+protocol IDeteilArticlesRouter {
     func addNewFavoriteArticle(article: Article)
     func shareUrl(article: Article)
 }
 
-final class DeteilMostPopularRouter: IDeteilMostPopularRouter {
+final class DeteilArticlesRouter: IDeteilArticlesRouter {
     
     // Dependencies
-    weak var transitionHandler: DeteilMostPopularViewController?
+    weak var transitionHandler: DeteilArticlesViewController?
     
     //MARK: - IDeteilMostPopularRouter
     func addNewFavoriteArticle(article: Article) {

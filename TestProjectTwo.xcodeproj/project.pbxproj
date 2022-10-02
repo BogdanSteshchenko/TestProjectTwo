@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B0BB70728DC4CDC009D936E /* DeteilMostPopularFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BB70628DC4CDC009D936E /* DeteilMostPopularFactory.swift */; };
-		8B0BB70928DC4CF9009D936E /* DeteilMostPopularViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BB70828DC4CF9009D936E /* DeteilMostPopularViewModel.swift */; };
-		8B0BB70B28DC4D12009D936E /* DeteilMostPopularAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BB70A28DC4D11009D936E /* DeteilMostPopularAssembly.swift */; };
-		8B0BB70D28DC4D24009D936E /* DeteilMostPopularPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BB70C28DC4D24009D936E /* DeteilMostPopularPresenter.swift */; };
-		8B0BB70F28DC4D3A009D936E /* DeteilMostPopularRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BB70E28DC4D3A009D936E /* DeteilMostPopularRouter.swift */; };
-		8B0BB71128DC4D4E009D936E /* DeteilMostPopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BB71028DC4D4E009D936E /* DeteilMostPopularViewController.swift */; };
+		8B0BB70728DC4CDC009D936E /* DeteilArticlesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BB70628DC4CDC009D936E /* DeteilArticlesFactory.swift */; };
+		8B0BB70928DC4CF9009D936E /* DeteilArticlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BB70828DC4CF9009D936E /* DeteilArticlesViewModel.swift */; };
+		8B0BB70B28DC4D12009D936E /* DeteilArticlesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BB70A28DC4D11009D936E /* DeteilArticlesAssembly.swift */; };
+		8B0BB70D28DC4D24009D936E /* DeteilArticlesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BB70C28DC4D24009D936E /* DeteilArticlesPresenter.swift */; };
+		8B0BB70F28DC4D3A009D936E /* DeteilArticlesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BB70E28DC4D3A009D936E /* DeteilArticlesRouter.swift */; };
+		8B0BB71128DC4D4E009D936E /* DeteilArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0BB71028DC4D4E009D936E /* DeteilArticlesViewController.swift */; };
 		8B41F7A928E445890038B55E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B41F7AB28E445890038B55E /* Localizable.strings */; };
 		8B4B745128D99707002B1C49 /* ArticlesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4B745028D99707002B1C49 /* ArticlesTableViewCell.swift */; };
 		8B4B745428D9A5B2002B1C49 /* AlertError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4B745328D9A5B2002B1C49 /* AlertError.swift */; };
@@ -56,24 +56,18 @@
 		8BCB6B9D28D4570E00127270 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BCB6B9B28D4570E00127270 /* LaunchScreen.storyboard */; };
 		8BD501D728E1E9D300CEF411 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD501D628E1E9D300CEF411 /* Notifications.swift */; };
 		8BF8E79128E5920C00205A80 /* UIImageView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF8E79028E5920C00205A80 /* UIImageView+extension.swift */; };
-		8BFF255828DDB22400AD5CE3 /* DeteiFavoritesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF255728DDB22400AD5CE3 /* DeteiFavoritesFactory.swift */; };
-		8BFF255B28DDB25600AD5CE3 /* DeteilFavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF255A28DDB25600AD5CE3 /* DeteilFavoritesViewModel.swift */; };
-		8BFF255D28DDB27E00AD5CE3 /* DeteilFavoritesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF255C28DDB27E00AD5CE3 /* DeteilFavoritesAssembly.swift */; };
-		8BFF255F28DDB2A400AD5CE3 /* DeteilFavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF255E28DDB2A400AD5CE3 /* DeteilFavoritesPresenter.swift */; };
-		8BFF256128DDB2CB00AD5CE3 /* DeteilFavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF256028DDB2CB00AD5CE3 /* DeteilFavoritesRouter.swift */; };
-		8BFF256328DDB2EA00AD5CE3 /* DeteilFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF256228DDB2EA00AD5CE3 /* DeteilFavoritesViewController.swift */; };
 		EB35DD08BF064A610B448E3A /* Pods_TestProjectTwo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06ADCDFDE2357BF09C5835DD /* Pods_TestProjectTwo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		04C3C79BDCB9C276FC950279 /* Pods-TestProjectTwo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestProjectTwo.release.xcconfig"; path = "Target Support Files/Pods-TestProjectTwo/Pods-TestProjectTwo.release.xcconfig"; sourceTree = "<group>"; };
 		06ADCDFDE2357BF09C5835DD /* Pods_TestProjectTwo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestProjectTwo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B0BB70628DC4CDC009D936E /* DeteilMostPopularFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilMostPopularFactory.swift; sourceTree = "<group>"; };
-		8B0BB70828DC4CF9009D936E /* DeteilMostPopularViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilMostPopularViewModel.swift; sourceTree = "<group>"; };
-		8B0BB70A28DC4D11009D936E /* DeteilMostPopularAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilMostPopularAssembly.swift; sourceTree = "<group>"; };
-		8B0BB70C28DC4D24009D936E /* DeteilMostPopularPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilMostPopularPresenter.swift; sourceTree = "<group>"; };
-		8B0BB70E28DC4D3A009D936E /* DeteilMostPopularRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilMostPopularRouter.swift; sourceTree = "<group>"; };
-		8B0BB71028DC4D4E009D936E /* DeteilMostPopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilMostPopularViewController.swift; sourceTree = "<group>"; };
+		8B0BB70628DC4CDC009D936E /* DeteilArticlesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilArticlesFactory.swift; sourceTree = "<group>"; };
+		8B0BB70828DC4CF9009D936E /* DeteilArticlesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilArticlesViewModel.swift; sourceTree = "<group>"; };
+		8B0BB70A28DC4D11009D936E /* DeteilArticlesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilArticlesAssembly.swift; sourceTree = "<group>"; };
+		8B0BB70C28DC4D24009D936E /* DeteilArticlesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilArticlesPresenter.swift; sourceTree = "<group>"; };
+		8B0BB70E28DC4D3A009D936E /* DeteilArticlesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilArticlesRouter.swift; sourceTree = "<group>"; };
+		8B0BB71028DC4D4E009D936E /* DeteilArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilArticlesViewController.swift; sourceTree = "<group>"; };
 		8B41F7A528E43FC50038B55E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		8B41F7AA28E445890038B55E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8B41F7AC28E4459C0038B55E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -121,12 +115,6 @@
 		8BCB6B9E28D4570E00127270 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BD501D628E1E9D300CEF411 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		8BF8E79028E5920C00205A80 /* UIImageView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+extension.swift"; sourceTree = "<group>"; };
-		8BFF255728DDB22400AD5CE3 /* DeteiFavoritesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteiFavoritesFactory.swift; sourceTree = "<group>"; };
-		8BFF255A28DDB25600AD5CE3 /* DeteilFavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilFavoritesViewModel.swift; sourceTree = "<group>"; };
-		8BFF255C28DDB27E00AD5CE3 /* DeteilFavoritesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilFavoritesAssembly.swift; sourceTree = "<group>"; };
-		8BFF255E28DDB2A400AD5CE3 /* DeteilFavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilFavoritesPresenter.swift; sourceTree = "<group>"; };
-		8BFF256028DDB2CB00AD5CE3 /* DeteilFavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilFavoritesRouter.swift; sourceTree = "<group>"; };
-		8BFF256228DDB2EA00AD5CE3 /* DeteilFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilFavoritesViewController.swift; sourceTree = "<group>"; };
 		C80DFD3A0676EACD390C5926 /* Pods-TestProjectTwo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestProjectTwo.debug.xcconfig"; path = "Target Support Files/Pods-TestProjectTwo/Pods-TestProjectTwo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,23 +130,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8B0BB70328DC4C3B009D936E /* DeteilMostPopular */ = {
+		8B0BB70328DC4C3B009D936E /* DeteilArticles */ = {
 			isa = PBXGroup;
 			children = (
 				8B0BB70428DC4CA8009D936E /* Factories */,
 				8B0BB70528DC4CB4009D936E /* ViewModels */,
-				8B0BB70A28DC4D11009D936E /* DeteilMostPopularAssembly.swift */,
-				8B0BB70C28DC4D24009D936E /* DeteilMostPopularPresenter.swift */,
-				8B0BB70E28DC4D3A009D936E /* DeteilMostPopularRouter.swift */,
-				8B0BB71028DC4D4E009D936E /* DeteilMostPopularViewController.swift */,
+				8B0BB70A28DC4D11009D936E /* DeteilArticlesAssembly.swift */,
+				8B0BB70C28DC4D24009D936E /* DeteilArticlesPresenter.swift */,
+				8B0BB70E28DC4D3A009D936E /* DeteilArticlesRouter.swift */,
+				8B0BB71028DC4D4E009D936E /* DeteilArticlesViewController.swift */,
 			);
-			path = DeteilMostPopular;
+			path = DeteilArticles;
 			sourceTree = "<group>";
 		};
 		8B0BB70428DC4CA8009D936E /* Factories */ = {
 			isa = PBXGroup;
 			children = (
-				8B0BB70628DC4CDC009D936E /* DeteilMostPopularFactory.swift */,
+				8B0BB70628DC4CDC009D936E /* DeteilArticlesFactory.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -166,7 +154,7 @@
 		8B0BB70528DC4CB4009D936E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				8B0BB70828DC4CF9009D936E /* DeteilMostPopularViewModel.swift */,
+				8B0BB70828DC4CF9009D936E /* DeteilArticlesViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -212,8 +200,7 @@
 				8B70865228D466A900FDA74F /* Start */,
 				8B7EF37028D8A056007D558C /* MostPopular */,
 				8B7EF37528D8AAE0007D558C /* Favorites */,
-				8B0BB70328DC4C3B009D936E /* DeteilMostPopular */,
-				8BFF255528DDB1D700AD5CE3 /* DeteilFavorites */,
+				8B0BB70328DC4C3B009D936E /* DeteilArticles */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -459,35 +446,6 @@
 			path = Notifications;
 			sourceTree = "<group>";
 		};
-		8BFF255528DDB1D700AD5CE3 /* DeteilFavorites */ = {
-			isa = PBXGroup;
-			children = (
-				8BFF255628DDB1FC00AD5CE3 /* Factories */,
-				8BFF255928DDB22A00AD5CE3 /* ViewModels */,
-				8BFF255C28DDB27E00AD5CE3 /* DeteilFavoritesAssembly.swift */,
-				8BFF255E28DDB2A400AD5CE3 /* DeteilFavoritesPresenter.swift */,
-				8BFF256028DDB2CB00AD5CE3 /* DeteilFavoritesRouter.swift */,
-				8BFF256228DDB2EA00AD5CE3 /* DeteilFavoritesViewController.swift */,
-			);
-			path = DeteilFavorites;
-			sourceTree = "<group>";
-		};
-		8BFF255628DDB1FC00AD5CE3 /* Factories */ = {
-			isa = PBXGroup;
-			children = (
-				8BFF255728DDB22400AD5CE3 /* DeteiFavoritesFactory.swift */,
-			);
-			path = Factories;
-			sourceTree = "<group>";
-		};
-		8BFF255928DDB22A00AD5CE3 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				8BFF255A28DDB25600AD5CE3 /* DeteilFavoritesViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		D6DD30EA44650CA0EC45081E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -641,8 +599,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B0BB70928DC4CF9009D936E /* DeteilMostPopularViewModel.swift in Sources */,
-				8B0BB70728DC4CDC009D936E /* DeteilMostPopularFactory.swift in Sources */,
+				8B0BB70928DC4CF9009D936E /* DeteilArticlesViewModel.swift in Sources */,
+				8B0BB70728DC4CDC009D936E /* DeteilArticlesFactory.swift in Sources */,
 				8B7EF38128D8AC25007D558C /* FavoritesRouter.swift in Sources */,
 				8B7EF37B28D8ABB2007D558C /* FavoritesViewModel.swift in Sources */,
 				8B7EF37F28D8ABE8007D558C /* FavoritesPresenter.swift in Sources */,
@@ -652,20 +610,17 @@
 				8B7EF38928D8B033007D558C /* MostPopularViewModel.swift in Sources */,
 				8B70865B28D4674500FDA74F /* StartAssembly.swift in Sources */,
 				8B99D14A28DB54E100D03C52 /* TabBarRouter.swift in Sources */,
-				8BFF255D28DDB27E00AD5CE3 /* DeteilFavoritesAssembly.swift in Sources */,
 				8B99D14028DB544200D03C52 /* TabBarViewModelFactory.swift in Sources */,
-				8B0BB70F28DC4D3A009D936E /* DeteilMostPopularRouter.swift in Sources */,
+				8B0BB70F28DC4D3A009D936E /* DeteilArticlesRouter.swift in Sources */,
 				8B99D14828DB54D300D03C52 /* TabBarPresenter.swift in Sources */,
 				8B7EF39528D8B20D007D558C /* NetworkDataFetch.swift in Sources */,
 				8B70865F28D4675F00FDA74F /* StartRouter.swift in Sources */,
-				8BFF255B28DDB25600AD5CE3 /* DeteilFavoritesViewModel.swift in Sources */,
 				8B4B745428D9A5B2002B1C49 /* AlertError.swift in Sources */,
 				8B7EF37D28D8ABD5007D558C /* FavoritesAssembly.swift in Sources */,
 				8B99D13828DB16BF00D03C52 /* WorkCoreDate.swift in Sources */,
 				8B99D14428DB54B100D03C52 /* TabBarAssembly.swift in Sources */,
 				8B99D13C28DB53F000D03C52 /* TabBarViewControllersResolver.swift in Sources */,
-				8BFF255828DDB22400AD5CE3 /* DeteiFavoritesFactory.swift in Sources */,
-				8B0BB71128DC4D4E009D936E /* DeteilMostPopularViewController.swift in Sources */,
+				8B0BB71128DC4D4E009D936E /* DeteilArticlesViewController.swift in Sources */,
 				8B70865D28D4675100FDA74F /* StartPresenter.swift in Sources */,
 				8B7EF37428D8A3FA007D558C /* MostPopularAssembly.swift in Sources */,
 				8B7EF38328D8AC36007D558C /* FavoritesViewController.swift in Sources */,
@@ -674,21 +629,18 @@
 				8B7EF37928D8AB9C007D558C /* FavoritesViewModelFactory.swift in Sources */,
 				8BD501D728E1E9D300CEF411 /* Notifications.swift in Sources */,
 				8B7EF39128D8B189007D558C /* ArticlesModel.swift in Sources */,
-				8B0BB70D28DC4D24009D936E /* DeteilMostPopularPresenter.swift in Sources */,
+				8B0BB70D28DC4D24009D936E /* DeteilArticlesPresenter.swift in Sources */,
 				8B70866128D4676D00FDA74F /* StartViewController.swift in Sources */,
 				8BCB6B9828D4570C00127270 /* TestProjectTwo.xcdatamodeld in Sources */,
 				8B99D14E28DC356A00D03C52 /* FlowCoordinator.swift in Sources */,
 				8B99D13628DAF30500D03C52 /* FavoritesTableViewCell.swift in Sources */,
 				8BCB6B8E28D4570C00127270 /* AppDelegate.swift in Sources */,
 				8B4B745128D99707002B1C49 /* ArticlesTableViewCell.swift in Sources */,
-				8BFF256128DDB2CB00AD5CE3 /* DeteilFavoritesRouter.swift in Sources */,
-				8B0BB70B28DC4D12009D936E /* DeteilMostPopularAssembly.swift in Sources */,
+				8B0BB70B28DC4D12009D936E /* DeteilArticlesAssembly.swift in Sources */,
 				8BCB6B9028D4570C00127270 /* SceneDelegate.swift in Sources */,
 				8B70866528D46BD000FDA74F /* UIButton+Setup.swift in Sources */,
 				8B7EF38B28D8B059007D558C /* MostPopularPresenter.swift in Sources */,
-				8BFF256328DDB2EA00AD5CE3 /* DeteilFavoritesViewController.swift in Sources */,
 				8B7EF38728D8B01B007D558C /* MostPopularViewModelFactory.swift in Sources */,
-				8BFF255F28DDB2A400AD5CE3 /* DeteilFavoritesPresenter.swift in Sources */,
 				8B7EF38D28D8B082007D558C /* MostPopularRouter.swift in Sources */,
 				8B7EF37228D8A0AD007D558C /* MostPopularViewController.swift in Sources */,
 				8B99D14228DB549700D03C52 /* TabBarViewModel.swift in Sources */,

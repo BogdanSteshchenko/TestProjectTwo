@@ -1,13 +1,13 @@
 //
-//  DeteilFavoritesViewModel.swift
+//  DeteilArticlesViewModel.swift
 //  TestProjectTwo
 //
-//  Created by Developer on 23.09.2022.
+//  Created by Developer on 22.09.2022.
 //
 
 import Foundation
 
-struct DeteilFavoritesViewModel {
+struct DeteilArticlesViewModel {
     let image: String?
     let title: String?
     let section: String?
@@ -15,5 +15,6 @@ struct DeteilFavoritesViewModel {
     let byline: String?
     let publishedDate: String?
     
+    let addFavorite: ButtonViewModel
     let shareUrl: ButtonNavigationBar
 }
