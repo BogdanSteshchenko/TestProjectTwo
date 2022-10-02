@@ -9,8 +9,9 @@ import Foundation
 
 protocol IMostPopularPresenter {
     var viewModel: MostPopularViewModel { get }
+    var article: [Article] { get }
     func viewDidLoad(type: BaseTypeSection)
-    func didTapDeteilAcrticle(number: Int)
+    func didTapDeteilAcrticle(article: Article)
 }
 
 final class MostPopularPresenter: IMostPopularPresenter {
@@ -22,7 +23,7 @@ final class MostPopularPresenter: IMostPopularPresenter {
     
     // Properties
     private(set) var viewModel: MostPopularViewModel = .empty
-    private var article: [Article] = []
+    var article: [Article] = []
     
     // MARK: - Initialization
     init(
@@ -62,7 +63,7 @@ final class MostPopularPresenter: IMostPopularPresenter {
     }
     
     //MARK: - MostPopularActions
-    func didTapDeteilAcrticle(number: Int) {
-        router.showDeteilFavorite(article: article[number])
+    func didTapDeteilAcrticle(article: Article) {
+        router.showDeteilFavorite(article: article)
     }
 }

@@ -9,9 +9,10 @@ import Foundation
 
 protocol IFavoritesPresenter {
     var viewModel: FavoritesViewModel { get }
+    var article: [ArticleFavorite] { get }
     func viewDidLoad()
-    func didTapDeteilAcrticle(number: Int)
-    func deleteArticle(number: Int)
+    func didTapDeteilAcrticle(article: ArticleFavorite)
+    func deleteArticle(article: ArticleFavorite)
 }
 
 final class FavoritesPresenter: IFavoritesPresenter {
@@ -23,7 +24,7 @@ final class FavoritesPresenter: IFavoritesPresenter {
     
     //Properties
     private(set) var viewModel: FavoritesViewModel = .empty
-    private var article: [ArticleFavorite] = []
+    var article: [ArticleFavorite] = []
     
     init(
         favoritesViewModelFactory: IFavoritesViewModelFactory, router: IFavoriteRouter) {
@@ -50,10 +51,10 @@ final class FavoritesPresenter: IFavoritesPresenter {
     }
     
     //MARK: - FactoriesActions
-    func didTapDeteilAcrticle(number: Int) {
-        router.showDeteilFavorite(article: article[number])
+    func didTapDeteilAcrticle(article: ArticleFavorite) {
+        router.showDeteilFavorite(article: article)
     }
-    func deleteArticle(number: Int) {
-        router.deleteArticle(article: article[number])
+    func deleteArticle(article: ArticleFavorite) {
+        router.deleteArticle(article: article)
     }
 }

@@ -111,7 +111,7 @@ extension MostPopularViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.didTapDeteilAcrticle(number: indexPath.row)
+        presenter.didTapDeteilAcrticle(article: presenter.article[indexPath.row])
     }
 }
 
