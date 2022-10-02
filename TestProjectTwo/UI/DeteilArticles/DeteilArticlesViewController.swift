@@ -105,7 +105,7 @@ final class DeteilArticlesViewController: UIViewController,
         abstractLabel.text = model?.abstract
         bylineLabel.text = model?.byline
         dateLabel.text = model?.publishedDate
-        addFavoriteButton.setup(with: viewModel.addFavorite)
+        addFavoriteButton.setupAddFavorite(with: viewModel.addFavorite)
         shareUrlButton.setup(with: viewModel.shareUrl)
         
         if let urlString = model?.image,
@@ -133,10 +133,10 @@ final class DeteilArticlesViewController: UIViewController,
     private func setupScrollView() {
         view.addSubview(scrollViewConroller)
         scrollViewConroller.snp.makeConstraints {
-            $0.leading.equalTo(view.snp.leading)
-            $0.trailing.equalTo(view.snp.trailing)
-            $0.top.equalTo(view.snp.top)
-            $0.bottom.equalTo(view.snp.bottom)
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.top.equalToSuperview()
+            $0.bottom.equalToSuperview()
             scrollViewConroller.contentSize.height = 1000
         }
     }
@@ -199,8 +199,8 @@ final class DeteilArticlesViewController: UIViewController,
         scrollViewConroller.addSubview(addFavoriteButton)
         addFavoriteButton.snp.makeConstraints {
             $0.centerY.equalTo(dateLabel.snp.centerY)
-            $0.leading.equalTo(dateLabel.snp.trailing).offset(25)
-            $0.width.equalTo(170)
+            $0.leading.equalTo(dateLabel.snp.trailing).offset(150)
+            $0.width.equalTo(27)
             $0.height.equalTo(27)
         }
     }

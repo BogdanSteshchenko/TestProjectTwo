@@ -14,7 +14,8 @@ struct DeteilArticlesViewModel {
     let abstract: String?
     let byline: String?
     let publishedDate: String?
+    let conditionArticleInFavorite: Bool
     
-    let addFavorite: ButtonViewModel
+    let addFavorite: ButtonViewModelFavorite
     let shareUrl: ButtonNavigationBar
 }

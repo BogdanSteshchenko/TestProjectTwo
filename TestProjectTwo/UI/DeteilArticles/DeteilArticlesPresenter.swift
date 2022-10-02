@@ -49,12 +49,10 @@ final class DeteilArticlesPresenter: DeteilArticlesActions, IDeteilArticlesPrese
     }
     // MARK: - DeteilMostPopularActions
     func didTapAddfavorite() {
-        guard let article = article else { return }
-        router.addNewFavoriteArticle(article: article)
+        router.addNewFavoriteArticle(article: article, articleFavorite: articleFavorite)
     }
     
     func didTapShareUrl() {
-        guard let article = article else { return }
-        router.shareUrl(article: article)
+        router.shareUrl(article: article, articleFavorite: articleFavorite)
     }
 }
