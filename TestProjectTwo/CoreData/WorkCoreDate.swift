@@ -53,16 +53,18 @@ class WorkCoreDate {
         }
     }
     
-    func deleteItem(article: ArticleFavorite, responce: @escaping ([ArticleFavorite]?, Error?) -> Void) {
-        guard let context = context else { return }
-        context.delete(article as NSManagedObject)
-        let fetchRequest: NSFetchRequest<ArticleFavorite> = ArticleFavorite.fetchRequest()
+    func deleteItem(article: ArticleModel) {
         do {
+            guard let context = context else { return }
+            let articles = try context.fetch(ArticleFavorite.fetchRequest())
+            articles.forEach { articles in
+                if articles.id == article.id {
+                    context.delete(articles as NSManagedObject)
+                }
+            }
             try context.save()
-            let article = try context.fetch(fetchRequest)
-            responce(article, nil)
         } catch {
-            responce(nil, NSError())
+            print("Error delete article")
         }
     }
     

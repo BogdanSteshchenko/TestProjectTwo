@@ -8,8 +8,8 @@
 import UIKit
 
 protocol IFavoriteRouter {
-    func showDeteilFavorite(article: ArticleFavorite)
-    func deleteArticle(article: ArticleFavorite)
+    func showDeteilFavorite(article: ArticleModel)
+    func deleteArticle(article: ArticleModel)
 }
 
 final class FavoritesRouter: IFavoriteRouter {
@@ -24,15 +24,11 @@ final class FavoritesRouter: IFavoriteRouter {
     }
     
     //MARK: - IFavoriteRouter
-    func showDeteilFavorite(article: ArticleFavorite) {
-        let view: UIViewController = deteilFavoritesAssembly.assemble(article: nil, articleFavorite: article)
+    func showDeteilFavorite(article: ArticleModel) {
+        let view: UIViewController = deteilFavoritesAssembly.assemble(article: article, articleFavorite: nil)
         transitionHandler?.navigationController?.pushViewController(view, animated: true)
-//        let view: UIViewController = deteilFavoritesAssembly.assemble(acticle: article)
-//        transitionHandler?.navigationController?.pushViewController(view, animated: true)
     }
-    func deleteArticle(article: ArticleFavorite) {
-        WorkCoreDate.shared.deleteItem(article: article) { _, _ in
-            
-        }
+    func deleteArticle(article: ArticleModel) {
+        WorkCoreDate.shared.deleteItem(article: article)
     }
 }

@@ -9,10 +9,10 @@ import Foundation
 
 protocol IFavoritesPresenter {
     var viewModel: FavoritesViewModel { get }
-    var article: [ArticleFavorite] { get }
+    var articles: [ArticleModel] { get }
     func viewDidLoad()
-    func didTapDeteilAcrticle(article: ArticleFavorite)
-    func deleteArticle(article: ArticleFavorite)
+    func didTapDeteilAcrticle(article: ArticleModel)
+    func deleteArticle(article: ArticleModel)
 }
 
 final class FavoritesPresenter: IFavoritesPresenter {
@@ -24,7 +24,7 @@ final class FavoritesPresenter: IFavoritesPresenter {
     
     //Properties
     private(set) var viewModel: FavoritesViewModel = .empty
-    var article: [ArticleFavorite] = []
+    var articles: [ArticleModel] = []
     
     init(
         favoritesViewModelFactory: IFavoritesViewModelFactory, router: IFavoriteRouter) {
@@ -42,19 +42,32 @@ final class FavoritesPresenter: IFavoritesPresenter {
             if let error = error {
                 print("ERROR = \(error)")
             } else {
+                self?.articles = []
                 guard let self = self,
                       let article = article else { return }
-                self.article = article
-                self.view?.setup(with: self.favoritesViewModelFactory.makeViewModel(model: article))
+                article.forEach { articles in
+                    let article: ArticleModel = ArticleModel(
+                        url: articles.url!,
+                        id: articles.id,
+                        publishedDate: articles.publishedDate!,
+                        section: articles.section!,
+                        byline: articles.byline!,
+                        title: articles.title!,
+                        abstract: articles.abstract!,
+                        urlImage: articles.urlImage)
+                    self.articles.append(article)
+                }
+//                self.article = article
+                self.view?.setup(with: self.favoritesViewModelFactory.makeViewModel(model: self.articles))
             }
         }
     }
     
     //MARK: - FactoriesActions
-    func didTapDeteilAcrticle(article: ArticleFavorite) {
+    func didTapDeteilAcrticle(article: ArticleModel) {
         router.showDeteilFavorite(article: article)
     }
-    func deleteArticle(article: ArticleFavorite) {
+    func deleteArticle(article: ArticleModel) {
         router.deleteArticle(article: article)
     }
 }

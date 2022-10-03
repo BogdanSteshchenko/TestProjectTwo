@@ -8,14 +8,14 @@
 import UIKit
 
 protocol IFavoritesViewModelFactory {
-    func makeViewModel(model: [ArticleFavorite]) -> FavoritesViewModel
+    func makeViewModel(model: [ArticleModel]) -> FavoritesViewModel
 }
 
 
 final class FavoritesViewModelFactory: IFavoritesViewModelFactory {
     
     //MARK: - IFavoritesViewModelFactory
-    func makeViewModel(model: [ArticleFavorite]) -> FavoritesViewModel {
+    func makeViewModel(model: [ArticleModel]) -> FavoritesViewModel {
         let shelves: [FavoritesViewModelCell] = self.makeArticles(article: model)
         
         return FavoritesViewModel.init(
@@ -24,13 +24,13 @@ final class FavoritesViewModelFactory: IFavoritesViewModelFactory {
     }
     
     // MARK: - Private
-    private func makeArticles(article: [ArticleFavorite]) -> [FavoritesViewModelCell] {
+    private func makeArticles(article: [ArticleModel]) -> [FavoritesViewModelCell] {
         var favoritesViewModelCell: [FavoritesViewModelCell] = []
         
         article.forEach { article in
             let productArticle: FavoritesViewModelCell = .init(
                 imageArticles: article.urlImage,
-                nameArticles: article.title ?? "",
+                nameArticles: article.title,
                 dateArticlesLabel: getDateString(date: article.publishedDate) ?? "")
             
             favoritesViewModelCell.append(productArticle)

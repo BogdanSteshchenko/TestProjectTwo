@@ -104,12 +104,12 @@ extension FavoritesViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.didTapDeteilAcrticle(article: presenter.article[indexPath.row])
+        presenter.didTapDeteilAcrticle(article: presenter.articles[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            presenter.deleteArticle(article: presenter.article[indexPath.row])
+            presenter.deleteArticle(article: presenter.articles[indexPath.row])
             presenter.viewDidLoad()
         }
     }
