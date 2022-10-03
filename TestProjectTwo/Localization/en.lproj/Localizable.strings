@@ -8,7 +8,8 @@
 "mostViewed" = "Most viewed";
 "mostShared" = "Most shared";
 "mostEmailed" = "Most emailed";
-"addFavorite" = "Add favorite";
 "share" = "Share";
 "articles" = "Articles";
 "favorites" = "Favorites";
+"networkError" = "Network error";
+"tryNetwork" = "Please try again later";

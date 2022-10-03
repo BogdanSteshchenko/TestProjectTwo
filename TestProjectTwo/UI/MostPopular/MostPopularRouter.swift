@@ -9,6 +9,7 @@ import UIKit
 
 protocol IMostPopularRouter {
     func showDeteilFavorite(article: ArticleModel)
+    func errorNetwork(view: UIViewController?)
 }
 
 final class MostPopularRouter: IMostPopularRouter {
@@ -26,5 +27,11 @@ final class MostPopularRouter: IMostPopularRouter {
     func showDeteilFavorite(article: ArticleModel) {
         let view: UIViewController = deteilMostPopularAssembly.assemble(article: article)
         transitionHandler?.navigationController?.pushViewController(view, animated: true)
+    }
+    
+    func errorNetwork(view: UIViewController?) {
+        guard let view = view else { return }
+        view.navigationController?.popViewController(animated: true)
+        AlertError.shared.alertError(title: NSLocalizedString("networkError", comment: ""), message: NSLocalizedString("tryNetwork", comment: ""), view: view)
     }
 }

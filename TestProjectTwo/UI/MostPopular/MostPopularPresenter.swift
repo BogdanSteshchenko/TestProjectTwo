@@ -51,8 +51,9 @@ final class MostPopularPresenter: IMostPopularPresenter {
             urlString = .mostViewed
         }
         NetworkDataFetch.shared.fetchArticles(url: urlString, domen: "https://api.nytimes.com/svc/mostpopular", version: "v2", key: "mrFPbwPT04KhI7ienE7ZRUOlMQSJYI5P") { [weak self] responce, error in
-            if let error = error {
-                print("Error 1 = \(error)")
+            if error != nil {
+                guard let self = self else { return }
+                self.router.errorNetwork(view: self.view)
             } else {
                 guard let self = self,
                       let responce = responce else { return }
