@@ -27,6 +27,9 @@ final class DeteilArticlesRouter: IDeteilArticlesRouter {
                 if !articles.contains(where: { $0.id == article.id }) {
                     WorkCoreDate.shared.createItem(article: article)
                     self.transitionHandler?.viewDidLoad()
+                } else {
+                    WorkCoreDate.shared.deleteItem(article: article)
+                    self.transitionHandler?.viewDidLoad()
                 }
             }
         }
