@@ -24,7 +24,7 @@ final class MostPopularRouter: IMostPopularRouter {
     
     //MARK: - IMostPopularRouter
     func showDeteilFavorite(article: ArticleModel) {
-        let view: UIViewController = deteilMostPopularAssembly.assemble(article: article, articleFavorite: nil)
+        let view: UIViewController = deteilMostPopularAssembly.assemble(article: article)
         transitionHandler?.navigationController?.pushViewController(view, animated: true)
     }
 }

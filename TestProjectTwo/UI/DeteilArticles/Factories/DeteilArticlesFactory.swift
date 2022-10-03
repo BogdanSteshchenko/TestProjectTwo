@@ -29,8 +29,7 @@ final class DeteilArticlesFactory: IDeteilArticlesFactory {
     
     
     //MARK: - Private
-    private func getDateString(date: Date?) -> String? {
-        guard let date = date else { return nil }
+    private func getDateString(date: Date) -> String {
         let dataFormatter = DateFormatter()
         dataFormatter.dateFormat = "dd.MM.yyyy"
         let dateString = dataFormatter.string(from: date)

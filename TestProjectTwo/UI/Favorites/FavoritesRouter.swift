@@ -25,7 +25,7 @@ final class FavoritesRouter: IFavoriteRouter {
     
     //MARK: - IFavoriteRouter
     func showDeteilFavorite(article: ArticleModel) {
-        let view: UIViewController = deteilFavoritesAssembly.assemble(article: article, articleFavorite: nil)
+        let view: UIViewController = deteilFavoritesAssembly.assemble(article: article)
         transitionHandler?.navigationController?.pushViewController(view, animated: true)
     }
     func deleteArticle(article: ArticleModel) {

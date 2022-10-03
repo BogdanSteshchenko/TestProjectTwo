@@ -23,7 +23,6 @@ final class DeteilArticlesPresenter: DeteilArticlesActions, IDeteilArticlesPrese
     private let viewModelFactory: IDeteilArticlesFactory
     private let router: IDeteilArticlesRouter
     private var article: ArticleModel?
-    private var articleFavorite: ArticleFavorite?
     
     
     // MARK: - Initialization
@@ -44,10 +43,12 @@ final class DeteilArticlesPresenter: DeteilArticlesActions, IDeteilArticlesPrese
     
     // MARK: - DeteilMostPopularActions
     func didTapAddfavorite() {
-        router.addNewFavoriteArticle(article: article, articleFavorite: articleFavorite)
+        guard let article = article else { return }
+        router.addNewFavoriteArticle(article: article)
     }
     
     func didTapShareUrl() {
-        router.shareUrl(article: article, articleFavorite: articleFavorite)
+        guard let article = article else { return }
+        router.shareUrl(article: article)
     }
 }
