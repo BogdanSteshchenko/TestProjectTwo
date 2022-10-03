@@ -22,20 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         flowCoordinator?.start()
     }
 
-    func sceneDidDisconnect(_ scene: UIScene) {
-    }
-
-    func sceneDidBecomeActive(_ scene: UIScene) {
-    }
-
-    func sceneWillResignActive(_ scene: UIScene) {
-    }
-
-    func sceneWillEnterForeground(_ scene: UIScene) {
-    }
-
     func sceneDidEnterBackground(_ scene: UIScene) {
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        CoreData.shared.saveContext()
     }
-    
 }

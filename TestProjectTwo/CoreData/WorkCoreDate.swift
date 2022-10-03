@@ -8,23 +8,21 @@
 import UIKit
 import CoreData
 
-class WorkCoreDate {
+final class WorkCoreDate {
     
     static let shared = WorkCoreDate()
     
-    let context: NSManagedObjectContext? = {
-        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            return context
-        }
-        return nil
+    let context: NSManagedObjectContext = {
+        return CoreData.shared.persistentContainer.viewContext
     }()
     
+    // MARK: - Initialization
     private init() {
     }
     
+    //MARK: - Method
     func createItem(article: ArticleModel) {
-        guard let allArticles = try? context?.fetch(ArticleFavorite.fetchRequest()),
-              let context = context else { return }
+        guard let allArticles = try? context.fetch(ArticleFavorite.fetchRequest()) else { return }
         if !allArticles.contains(where: { $0.id == article.id }) {
             let newArticle = ArticleFavorite(context: context)
             newArticle.title = article.title
@@ -45,7 +43,6 @@ class WorkCoreDate {
     
     func getAllOfflineArticles(responce: @escaping ([ArticleFavorite]?, Error?) -> Void) {
         do {
-            guard let context = context else { return }
             let article = try context.fetch(ArticleFavorite.fetchRequest())
             responce(article, nil)
         } catch {
@@ -55,7 +52,6 @@ class WorkCoreDate {
     
     func deleteItem(article: ArticleModel) {
         do {
-            guard let context = context else { return }
             let articles = try context.fetch(ArticleFavorite.fetchRequest())
             articles.forEach { articles in
                 if articles.id == article.id {
@@ -68,6 +64,7 @@ class WorkCoreDate {
         }
     }
     
+    // MARK: - Private
     private func fromJpegToData(urlString: String?) -> Data? {
         do {
             guard let urlString = urlString,
