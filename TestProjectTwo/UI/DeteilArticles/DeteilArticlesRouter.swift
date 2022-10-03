@@ -8,8 +8,8 @@
 import UIKit
 
 protocol IDeteilArticlesRouter {
-    func addNewFavoriteArticle(article: Article?, articleFavorite: ArticleFavorite?)
-    func shareUrl(article: Article?, articleFavorite: ArticleFavorite?)
+    func addNewFavoriteArticle(article: ArticleModel?, articleFavorite: ArticleFavorite?)
+    func shareUrl(article: ArticleModel?, articleFavorite: ArticleFavorite?)
 }
 
 final class DeteilArticlesRouter: IDeteilArticlesRouter {
@@ -18,7 +18,7 @@ final class DeteilArticlesRouter: IDeteilArticlesRouter {
     weak var transitionHandler: DeteilArticlesViewController?
     
     //MARK: - IDeteilMostPopularRouter
-    func addNewFavoriteArticle(article: Article?, articleFavorite: ArticleFavorite?) {
+    func addNewFavoriteArticle(article: ArticleModel?, articleFavorite: ArticleFavorite?) {
         WorkCoreDate.shared.getAllOfflineArticles { articles, error in
             if let error = error {
                 print(error.localizedDescription)
@@ -35,7 +35,7 @@ final class DeteilArticlesRouter: IDeteilArticlesRouter {
             }
         }
     }
-    func shareUrl(article: Article?, articleFavorite: ArticleFavorite?) {
+    func shareUrl(article: ArticleModel?, articleFavorite: ArticleFavorite?) {
         if article != nil {
             guard let article = article else { return }
             if UIDevice.current.userInterfaceIdiom == .pad {

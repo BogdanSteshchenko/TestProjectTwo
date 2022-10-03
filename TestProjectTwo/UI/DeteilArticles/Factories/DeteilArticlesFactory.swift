@@ -8,16 +8,16 @@
 import UIKit
 
 protocol IDeteilArticlesFactory {
-    func makeViewModel (actions: DeteilArticlesActions, model: Article) -> DeteilArticlesViewModel
+    func makeViewModel (actions: DeteilArticlesActions, model: ArticleModel) -> DeteilArticlesViewModel
     func makeViewModelFavorite(actions: DeteilArticlesActions, model: ArticleFavorite) -> DeteilArticlesViewModel
 }
 
 final class DeteilArticlesFactory: IDeteilArticlesFactory {
     
     //MARK: - IDeteilMostPopularFactory
-    func makeViewModel(actions: DeteilArticlesActions, model: Article) -> DeteilArticlesViewModel {
+    func makeViewModel(actions: DeteilArticlesActions, model: ArticleModel) -> DeteilArticlesViewModel {
         .init(
-            image: model.media?.first?.mediaMetadata[2].url,
+            image: model.urlImage,
             title: model.title,
             section: model.section,
             abstract: model.abstract,
@@ -50,7 +50,7 @@ final class DeteilArticlesFactory: IDeteilArticlesFactory {
         let dateString = dataFormatter.string(from: date)
         return dateString
     }
-    private func makeAddFavoriteButtonModel(actions: DeteilArticlesActions, model: Article?, modelFavorite: ArticleFavorite?) -> ButtonViewModelFavorite {
+    private func makeAddFavoriteButtonModel(actions: DeteilArticlesActions, model: ArticleModel?, modelFavorite: ArticleFavorite?) -> ButtonViewModelFavorite {
         .init(
             condition: getConditionFavorite(model: model, modelFavorite: modelFavorite),
             action: { [weak actions] in
@@ -68,7 +68,7 @@ final class DeteilArticlesFactory: IDeteilArticlesFactory {
         )
     }
     
-    private func getConditionFavorite(model: Article?, modelFavorite: ArticleFavorite?) -> Bool {
+    private func getConditionFavorite(model: ArticleModel?, modelFavorite: ArticleFavorite?) -> Bool {
         if model != nil {
             var condition = false
             WorkCoreDate.shared.getAllOfflineArticles { articles, error in

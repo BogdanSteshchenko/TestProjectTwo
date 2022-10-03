@@ -16,7 +16,7 @@ final class DeteilArticlesViewController: UIViewController,
     
     // Dependencies
     private let presenter: IDeteilArticlesPresenter
-    private let article: Article?
+    private let article: ArticleModel?
     private let articleFavorite: ArticleFavorite?
     private var model: DeteilArticlesViewModel?
     
@@ -74,7 +74,7 @@ final class DeteilArticlesViewController: UIViewController,
     private let shareUrlButton: UIBarButtonItem = UIBarButtonItem()
     
     // MARK: - Initialization
-    init(presenter: IDeteilArticlesPresenter, article: Article?, articleFavorite: ArticleFavorite?) {
+    init(presenter: IDeteilArticlesPresenter, article: ArticleModel?, articleFavorite: ArticleFavorite?) {
         self.presenter = presenter
         self.article = article
         self.articleFavorite = articleFavorite

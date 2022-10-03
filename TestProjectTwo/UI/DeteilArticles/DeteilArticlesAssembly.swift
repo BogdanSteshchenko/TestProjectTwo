@@ -8,11 +8,11 @@
 import UIKit
 
 protocol IDeteilArticlesAssembly {
-    func assemble(article: Article?, articleFavorite: ArticleFavorite?) -> UIViewController
+    func assemble(article: ArticleModel?, articleFavorite: ArticleFavorite?) -> UIViewController
 }
 
 final class DeteilArticlesAssembly: IDeteilArticlesAssembly {
-    func assemble(article: Article?, articleFavorite: ArticleFavorite?) -> UIViewController {
+    func assemble(article: ArticleModel?, articleFavorite: ArticleFavorite?) -> UIViewController {
         let viewModelFactory: DeteilArticlesFactory = DeteilArticlesFactory()
         let router: DeteilArticlesRouter = DeteilArticlesRouter()
         let presenter: DeteilArticlesPresenter = DeteilArticlesPresenter(viewModelFactory: viewModelFactory, router: router)

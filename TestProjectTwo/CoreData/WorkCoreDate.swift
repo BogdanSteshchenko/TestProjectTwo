@@ -22,7 +22,7 @@ class WorkCoreDate {
     private init() {
     }
     
-    func createItem(article: Article) {
+    func createItem(article: ArticleModel) {
         guard let allArticles = try? context?.fetch(ArticleFavorite.fetchRequest()),
               let context = context else { return }
         if !allArticles.contains(where: { $0.id == article.id }) {
@@ -34,7 +34,7 @@ class WorkCoreDate {
             newArticle.abstract = article.abstract
             newArticle.id = article.id
             newArticle.url = article.url
-            newArticle.urlImage = article.media?.first?.mediaMetadata[2].url
+            newArticle.urlImage = article.urlImage
             do {
                 try context.save()
             } catch {

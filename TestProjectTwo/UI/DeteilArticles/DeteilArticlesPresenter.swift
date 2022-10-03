@@ -13,7 +13,7 @@ protocol DeteilArticlesActions: AnyObject {
 }
 
 protocol IDeteilArticlesPresenter {
-    func viewDidLoad(article: Article?, articleFavorite: ArticleFavorite?)
+    func viewDidLoad(article: ArticleModel?, articleFavorite: ArticleFavorite?)
 }
 
 final class DeteilArticlesPresenter: DeteilArticlesActions, IDeteilArticlesPresenter {
@@ -22,7 +22,7 @@ final class DeteilArticlesPresenter: DeteilArticlesActions, IDeteilArticlesPrese
     weak var view: DeteilArticlesViewController?
     private let viewModelFactory: IDeteilArticlesFactory
     private let router: IDeteilArticlesRouter
-    private var article: Article?
+    private var article: ArticleModel?
     private var articleFavorite: ArticleFavorite?
     
     
@@ -36,7 +36,7 @@ final class DeteilArticlesPresenter: DeteilArticlesActions, IDeteilArticlesPrese
     }
     
     // MARK: - Life cycle
-    func viewDidLoad(article: Article?, articleFavorite: ArticleFavorite?) {
+    func viewDidLoad(article: ArticleModel?, articleFavorite: ArticleFavorite?) {
         if article != nil {
             guard let article = article else { return }
             view?.setup(with: viewModelFactory.makeViewModel(actions: self, model: article))

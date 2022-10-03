@@ -9,9 +9,9 @@ import Foundation
 
 protocol IMostPopularPresenter {
     var viewModel: MostPopularViewModel { get }
-    var article: [Article] { get }
+    var article: [ArticleModel] { get }
     func viewDidLoad(type: BaseTypeSection)
-    func didTapDeteilAcrticle(article: Article)
+    func didTapDeteilAcrticle(article: ArticleModel)
 }
 
 final class MostPopularPresenter: IMostPopularPresenter {
@@ -23,7 +23,7 @@ final class MostPopularPresenter: IMostPopularPresenter {
     
     // Properties
     private(set) var viewModel: MostPopularViewModel = .empty
-    var article: [Article] = []
+    var article: [ArticleModel] = []
     
     // MARK: - Initialization
     init(
@@ -56,14 +56,26 @@ final class MostPopularPresenter: IMostPopularPresenter {
             } else {
                 guard let self = self,
                       let responce = responce else { return }
-                self.article = responce.results
+                responce.results.forEach { articles in
+                    let article: ArticleModel = ArticleModel(
+                        url: articles.url,
+                        id: articles.id,
+                        publishedDate: articles.publishedDate,
+                        section: articles.section,
+                        byline: articles.byline,
+                        title: articles.title,
+                        abstract: articles.abstract,
+                        urlImage: articles.media?.first?.mediaMetadata[2].url
+                    )
+                    self.article.append(article)
+                }
                 self.view?.setup(with: self.mostPopularViewModelFactory.makeViewModel(model: responce, type: type))
             }
         }
     }
     
     //MARK: - MostPopularActions
-    func didTapDeteilAcrticle(article: Article) {
+    func didTapDeteilAcrticle(article: ArticleModel) {
         router.showDeteilFavorite(article: article)
     }
 }

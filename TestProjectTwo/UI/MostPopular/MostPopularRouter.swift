@@ -8,7 +8,7 @@
 import UIKit
 
 protocol IMostPopularRouter {
-    func showDeteilFavorite(article: Article)
+    func showDeteilFavorite(article: ArticleModel)
 }
 
 final class MostPopularRouter: IMostPopularRouter {
@@ -23,7 +23,7 @@ final class MostPopularRouter: IMostPopularRouter {
     }
     
     //MARK: - IMostPopularRouter
-    func showDeteilFavorite(article: Article) {
+    func showDeteilFavorite(article: ArticleModel) {
         let view: UIViewController = deteilMostPopularAssembly.assemble(article: article, articleFavorite: nil)
         transitionHandler?.navigationController?.pushViewController(view, animated: true)
     }
