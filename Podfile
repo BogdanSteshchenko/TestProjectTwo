@@ -8,4 +8,5 @@ pod 'SnapKit'
 pod 'SwiftLint'
 pod 'Kingfisher'
 pod 'Firebase'
+pod 'R.swift'
 end

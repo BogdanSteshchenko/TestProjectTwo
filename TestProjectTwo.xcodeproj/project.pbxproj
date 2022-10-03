@@ -51,6 +51,7 @@
 		8B99D14828DB54D300D03C52 /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B99D14728DB54D300D03C52 /* TabBarPresenter.swift */; };
 		8B99D14A28DB54E100D03C52 /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B99D14928DB54E100D03C52 /* TabBarRouter.swift */; };
 		8B99D14E28DC356A00D03C52 /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B99D14D28DC356A00D03C52 /* FlowCoordinator.swift */; };
+		8BB4910928EB1D5C00E504E7 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB4910828EB1D5C00E504E7 /* R.generated.swift */; };
 		8BCB6B8E28D4570C00127270 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCB6B8D28D4570C00127270 /* AppDelegate.swift */; };
 		8BCB6B9028D4570C00127270 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCB6B8F28D4570C00127270 /* SceneDelegate.swift */; };
 		8BCB6B9828D4570C00127270 /* TestProjectTwo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8BCB6B9628D4570C00127270 /* TestProjectTwo.xcdatamodeld */; };
@@ -110,6 +111,7 @@
 		8B99D14728DB54D300D03C52 /* TabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
 		8B99D14928DB54E100D03C52 /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
 		8B99D14D28DC356A00D03C52 /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
+		8BB4910828EB1D5C00E504E7 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		8BCB6B8A28D4570C00127270 /* TestProjectTwo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProjectTwo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BCB6B8D28D4570C00127270 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BCB6B8F28D4570C00127270 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				8BCB6B9928D4570E00127270 /* Assets.xcassets */,
+				8BB4910828EB1D5C00E504E7 /* R.generated.swift */,
 				8B41F7A628E445350038B55E /* Localization */,
 			);
 			path = Resources;
@@ -485,11 +488,12 @@
 			buildConfigurationList = 8BCB6BA128D4570E00127270 /* Build configuration list for PBXNativeTarget "TestProjectTwo" */;
 			buildPhases = (
 				C1C63064C6199CF5A4DD65F2 /* [CP] Check Pods Manifest.lock */,
+				8BB4910728EB1CCD00E504E7 /* R.Swift */,
+				8BD501B228E1A6ED00CEF411 /* SwiftLint */,
 				8BCB6B8628D4570C00127270 /* Sources */,
 				8BCB6B8728D4570C00127270 /* Frameworks */,
 				8BCB6B8828D4570C00127270 /* Resources */,
 				63B4FFCDD723ADD827B81C4D /* [CP] Embed Pods Frameworks */,
-				8BD501B228E1A6ED00CEF411 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -564,6 +568,26 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestProjectTwo/Pods-TestProjectTwo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8BB4910728EB1CCD00E504E7 /* R.Swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = R.Swift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
 		};
 		8BD501B228E1A6ED00CEF411 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -649,6 +673,7 @@
 				8B70866128D4676D00FDA74F /* StartViewController.swift in Sources */,
 				8BCB6B9828D4570C00127270 /* TestProjectTwo.xcdatamodeld in Sources */,
 				8B99D14E28DC356A00D03C52 /* FlowCoordinator.swift in Sources */,
+				8BB4910928EB1D5C00E504E7 /* R.generated.swift in Sources */,
 				8B99D13628DAF30500D03C52 /* FavoritesTableViewCell.swift in Sources */,
 				8BCB6B8E28D4570C00127270 /* AppDelegate.swift in Sources */,
 				8B4B745128D99707002B1C49 /* ArticlesTableViewCell.swift in Sources */,

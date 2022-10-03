@@ -13,3 +13,5 @@ excluded:
   - Pods
   - Source/ExcludedFolder
   - Source/ExcludedFile.swift
+  - R.generated.swift
+  - LayoutConstraintItem.swift
