@@ -347,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				8BCB6B9928D4570E00127270 /* Assets.xcassets */,
+				8B41F7A628E445350038B55E /* Localization */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -442,7 +443,6 @@
 				8B70864D28D4577E00FDA74F /* UI */,
 				8BCB6B8B28D4570C00127270 /* Products */,
 				8B70864C28D4576E00FDA74F /* CoreData */,
-				8B41F7A628E445350038B55E /* Localization */,
 				8BCB6B9B28D4570E00127270 /* LaunchScreen.storyboard */,
 				8BCB6B9E28D4570E00127270 /* Info.plist */,
 			);
