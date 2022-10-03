@@ -90,11 +90,7 @@ final class DeteilArticlesViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        if article != nil {
-            presenter.viewDidLoad(article: article, articleFavorite: nil)
-        } else {
-            presenter.viewDidLoad(article: nil, articleFavorite: articleFavorite)
-        }
+        presenter.viewDidLoad(article: article)
     }
     
     //MARK: - IDeteilMostPopularViewController

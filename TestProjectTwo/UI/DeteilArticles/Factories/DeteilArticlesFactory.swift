@@ -9,7 +9,6 @@ import UIKit
 
 protocol IDeteilArticlesFactory {
     func makeViewModel (actions: DeteilArticlesActions, model: ArticleModel) -> DeteilArticlesViewModel
-    func makeViewModelFavorite(actions: DeteilArticlesActions, model: ArticleFavorite) -> DeteilArticlesViewModel
 }
 
 final class DeteilArticlesFactory: IDeteilArticlesFactory {
@@ -23,21 +22,8 @@ final class DeteilArticlesFactory: IDeteilArticlesFactory {
             abstract: model.abstract,
             byline: model.byline,
             publishedDate: getDateString(date: model.publishedDate),
-            conditionArticleInFavorite: getConditionFavorite(model: model, modelFavorite: nil),
-            addFavorite: makeAddFavoriteButtonModel(actions: actions, model: model, modelFavorite: nil),
-            shareUrl: makeShareUrlButton(actions: actions))
-    }
-    
-    func makeViewModelFavorite(actions: DeteilArticlesActions, model: ArticleFavorite) -> DeteilArticlesViewModel {
-        .init(
-            image: model.urlImage,
-            title: model.title,
-            section: model.section,
-            abstract: model.abstract,
-            byline: model.byline,
-            publishedDate: getDateString(date: model.publishedDate),
-            conditionArticleInFavorite: getConditionFavorite(model: nil, modelFavorite: model),
-            addFavorite: makeAddFavoriteButtonModel(actions: actions, model: nil, modelFavorite: model),
+            conditionArticleInFavorite: getConditionFavorite(model: model),
+            addFavorite: makeAddFavoriteButtonModel(actions: actions, model: model),
             shareUrl: makeShareUrlButton(actions: actions))
     }
     
@@ -50,9 +36,10 @@ final class DeteilArticlesFactory: IDeteilArticlesFactory {
         let dateString = dataFormatter.string(from: date)
         return dateString
     }
-    private func makeAddFavoriteButtonModel(actions: DeteilArticlesActions, model: ArticleModel?, modelFavorite: ArticleFavorite?) -> ButtonViewModelFavorite {
+    
+    private func makeAddFavoriteButtonModel(actions: DeteilArticlesActions, model: ArticleModel) -> ButtonViewModelFavorite {
         .init(
-            condition: getConditionFavorite(model: model, modelFavorite: modelFavorite),
+            condition: getConditionFavorite(model: model),
             action: { [weak actions] in
                 actions?.didTapAddfavorite()
             }
@@ -68,39 +55,21 @@ final class DeteilArticlesFactory: IDeteilArticlesFactory {
         )
     }
     
-    private func getConditionFavorite(model: ArticleModel?, modelFavorite: ArticleFavorite?) -> Bool {
-        if model != nil {
-            var condition = false
-            WorkCoreDate.shared.getAllOfflineArticles { articles, error in
-                if let error = error {
-                    print(error.localizedDescription)
+    private func getConditionFavorite(model: ArticleModel) -> Bool {
+        var condition = false
+        WorkCoreDate.shared.getAllOfflineArticles { articles, error in
+            if let error = error {
+                print(error.localizedDescription)
+                condition = false
+            } else {
+                guard let articles = articles else { return }
+                if !articles.contains(where: { $0.id == model.id }) {
                     condition = false
                 } else {
-                    guard let articles = articles else { return }
-                    if !articles.contains(where: { $0.id == model?.id }) {
-                        condition = false
-                    } else {
-                        condition = true
-                    }
+                    condition = true
                 }
             }
-            return condition
-        } else {
-            var condition = false
-            WorkCoreDate.shared.getAllOfflineArticles { articles, error in
-                if let error = error {
-                    print(error.localizedDescription)
-                    condition = false
-                } else {
-                    guard let articles = articles else { return }
-                    if !articles.contains(where: { $0.id == modelFavorite?.id }) {
-                        condition = false
-                    } else {
-                        condition = true
-                    }
-                }
-            }
-            return condition
         }
+        return condition
     }
 }

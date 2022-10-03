@@ -13,7 +13,7 @@ protocol DeteilArticlesActions: AnyObject {
 }
 
 protocol IDeteilArticlesPresenter {
-    func viewDidLoad(article: ArticleModel?, articleFavorite: ArticleFavorite?)
+    func viewDidLoad(article: ArticleModel?)
 }
 
 final class DeteilArticlesPresenter: DeteilArticlesActions, IDeteilArticlesPresenter {
@@ -36,17 +36,12 @@ final class DeteilArticlesPresenter: DeteilArticlesActions, IDeteilArticlesPrese
     }
     
     // MARK: - Life cycle
-    func viewDidLoad(article: ArticleModel?, articleFavorite: ArticleFavorite?) {
-        if article != nil {
-            guard let article = article else { return }
-            view?.setup(with: viewModelFactory.makeViewModel(actions: self, model: article))
-            self.article = article
-        } else {
-            guard let articleFavorite = articleFavorite else { return }
-            view?.setup(with: viewModelFactory.makeViewModelFavorite(actions: self, model: articleFavorite))
-            self.articleFavorite = articleFavorite
-        }
+    func viewDidLoad(article: ArticleModel?) {
+        guard let article = article else { return }
+        view?.setup(with: viewModelFactory.makeViewModel(actions: self, model: article))
+        self.article = article
     }
+    
     // MARK: - DeteilMostPopularActions
     func didTapAddfavorite() {
         router.addNewFavoriteArticle(article: article, articleFavorite: articleFavorite)
