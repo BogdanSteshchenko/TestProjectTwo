@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  TestProjectTwo
+
+  Created by Developer on 28.09.2022.
+  
+*/
+"mostViewed" = "Наиболее просматриваемые";
+"mostShared" = "Самые популярные";
+"mostEmailed" = "Самые популярные";
+"addFavorite" = "Добавить в избранное";
+"share" = "Поделиться";
+"articles" = "Статьи";
+"favorites" = "Избранное";
